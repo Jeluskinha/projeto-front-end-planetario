@@ -1,4 +1,4 @@
-import { ModalContainer } from "./styles"
+import { ModalContainer } from './styles'
 
 const Modal = ({ children }) => {
 

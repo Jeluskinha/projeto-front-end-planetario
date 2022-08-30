@@ -1,15 +1,15 @@
-import { PlanetContainer } from "./styles"
+import { PlanetContainer } from './styles'
 
-const Planet = ({ children }) => {
+const Planet = ({ planet }) => {
 
     return (
 
         <PlanetContainer>
 
-            {children}
+            <img src={planet.image} alt={ planet.name} />
 
         </PlanetContainer>
-        
+
     )
 }
 
