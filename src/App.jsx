@@ -1,5 +1,4 @@
-import Global from "./styles/global";
-
+import Global from "./global/CSS/resetcss";
 
 function App() {
   return (
