@@ -1,10 +1,12 @@
-import Global from "./global/CSS/resetcss";
+import Routes from "./routes";
 
 function App() {
   return (
-    <Global>
+  // inserir AuthProvider no lugar do fragment 
+    <>  
+      <Routes/>
       <div className="App"></div>
-    </Global>
+    </>
   );
 }
 
