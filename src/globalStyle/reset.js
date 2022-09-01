@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
 
       --Color-blue-1: 102, 147, 231;
       --Color-blue-2: rgba(38, 78, 154, 1);
-      --Color-blue-3: ;
+      --Color-blue-3: rgba(59, 77, 114, 1);
 
       --Color-success: rgba(81, 189, 101, 1);
       --Color-error: rgba(253, 80, 80, 1);
