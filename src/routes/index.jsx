@@ -4,7 +4,9 @@ import Dashboard from "../pages/Dashboard"
 function RoutesMain(){
     return(
         <Routes>
-            <Route path='/' element={<Dashboard/>}/>
+            <Route path='/login'/>
+            <Route path='/register'/>
+            <Route path='/blog'/>
             <Route path='*' element={<Navigate replace to='/'/>}/>
         </Routes>
     )
