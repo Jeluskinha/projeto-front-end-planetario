@@ -90,13 +90,15 @@ const Dashboard = () => {
 
                 </ul>
 
-                {
+                
+               
+            </main>
+
+            {
                     window.matchMedia('(min-width: 1024px)').matches && // ? substituido por && para poder comentar o section
 
                     
                         // planetOnFocusDesktop && 
-
-
 
                             <Modal>
 
@@ -138,8 +140,6 @@ const Dashboard = () => {
 
                         // </section>
                 }
-               
-            </main>
 
         </DashboardContainer>
         
