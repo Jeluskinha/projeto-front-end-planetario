@@ -1,12 +1,13 @@
-import Routes from "./routes";
+import RoutesMain from "./routes";
+
 
 function App() {
   return (
   // inserir AuthProvider no lugar do fragment 
-    <>  
-      <Routes/>
-      <div className="App"></div>
-    </>
+    <div className="App">  
+      <RoutesMain/>
+      
+    </div>
   );
 }
 
