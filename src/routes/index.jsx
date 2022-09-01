@@ -1,4 +1,5 @@
 import {Routes, Route, Navigate} from "react-router-dom"
+import Blog from "../pages/Blog"
 import Dashboard from "../pages/Dashboard"
 
 function RoutesMain(){
@@ -6,7 +7,7 @@ function RoutesMain(){
         <Routes>
             <Route path='/login'/>
             <Route path='/register'/>
-            <Route path='/blog'/>
+            <Route path='/blog' element={<Blog/>}/>
             <Route path='*' element={<Navigate replace to='/'/>}/>
         </Routes>
     )
