@@ -5,8 +5,11 @@ const Planet = ({ planet }) => {
     return (
 
         <PlanetContainer>
-            
-            <img src={planet.image} alt={ planet.name} />
+            <figure>
+
+              <img src={planet.image} alt={ planet.name} />
+
+            </figure>
             
         </PlanetContainer>
 

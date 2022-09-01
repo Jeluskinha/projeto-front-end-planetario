@@ -38,23 +38,26 @@ export const DashboardContainer = styled.div`
         width: 100vw;
         height: 100vh;
         display: flex;
-
-
+        justify-content: flex-end;
         div{
-            min-height: 100%;
-            width: 10%;          
+            min-height: 100%;  
+            width: 10%;
+            display: flex;
+            align-items: center;
             figure{
                 height: 100%;
-                width: 100%;
-                padding: 5px 0;
+                width: 400px;
+                left: 0px;
                 display: flex;
                 align-items: center; 
+                z-index: 1;
+                position: absolute;
+                left: -220px;
+                flex-shrink: 1;
                 img{
-                    height: 80%;
-                    width: 60%;
-                    left: -600px;
-                    position: absolute;
-                    transform: rotate(95deg);
+                    height: 101%;
+                    width: 100%;
+                    border-radius: 0 60% 60% 0;
                 }
             }
         }
@@ -62,8 +65,7 @@ export const DashboardContainer = styled.div`
             min-height: 100%;
             width: 90%;
             height: max-content;
-            justify-self: flex-end;
-            background-color: red;
+            justify-content: flex-end;
 
             display: flex;
             align-items: center;
@@ -73,6 +75,7 @@ export const DashboardContainer = styled.div`
             overflow: auto;
             
             list-style: none;
+            position: relative;
         };
         
         /* section {
