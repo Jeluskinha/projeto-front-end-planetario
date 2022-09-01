@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const PlanetContainer = styled.li`
-    min-width: 100vw;
-    min-height: 240px;
+    width: 200px;
+    height: 100px;
 
     border-radius: 50%;
 
