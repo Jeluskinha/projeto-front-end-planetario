@@ -1,13 +1,13 @@
 import {Routes, Route, Navigate} from "react-router-dom"
+import Dashboard from "../pages/Dashboard"
 
 function RoutesMain(){
     return(
         <Routes>
-            <Route path='/' element={<Login/>}/>
-            <Route path='/login' element={<Login/>}/>
-            <Route path='/register' element={<Login/>}/>
-            <Route path='/forum' element={<Login/>}/>
-            {/* ↧ ↧ em caso de digitar rota errada ele redireciona para a página de dashboard*/}
+            <Route path='/' element={<Dashboard/>}/>
+            <Route path='/login'/>
+            <Route path='/register'/>
+            <Route path='/forum'/>
             <Route path='*' element={<Navigate replace to='/'/>}/>
         </Routes>
     )
