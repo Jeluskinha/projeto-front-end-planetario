@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from 'react';
 
 export const BlogContext = createContext()
 
@@ -6,10 +6,6 @@ export const BlogProvider = ({ children }) => {
 
     const [isHeaderVisible, setIsHeaderVisible]   = useState(false)
     const [isProfileVisible, setIsProfileVisible] = useState(false)
-
-    useEffect(() => {
-        //requisição 
-    }, [])
 
     return (
 

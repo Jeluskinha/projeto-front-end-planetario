@@ -1,8 +1,8 @@
-import { useContext } from "react"
-import IconDelete from "../../assets/IconDelete"
-import IconEdit from "../../assets/IconEdit"
-import { PostsContext } from "../../context/posts"
-import { PostContainer } from "./styles"
+import { useContext } from 'react'
+import IconDelete from '../../assets/IconDelete'
+import IconEdit from '../../assets/IconEdit'
+import { PostsContext } from '../../context/posts'
+import { PostContainer } from './styles'
 
 const Post = ({ post }) => {
 
@@ -21,14 +21,25 @@ const Post = ({ post }) => {
                     && 
                     <div>
 
-                        <button> <IconEdit/>   </button>
-                        <button> <IconDelete/> </button>
+                        <button onClick={() => {
+
+                            localStorage.setItem('@Post_ID', post.id)
+                            setIsEditVisible(true)
+
+                        }}> <IconEdit/> </button>
+                        
+                        <button onClick={() => {
+
+                            localStorage.setItem('@Post_ID', post.id)
+                            setIsDeleteVisible(true)
+                            
+                        }}> <IconDelete/> </button>
 
                     </div>
                 }
             </header>
 
-            <section className="user_info">
+            <section className='user_info'>
 
                <img src='colocar user.image' alt='Foto do usuário' />
 

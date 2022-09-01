@@ -1,4 +1,5 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from 'react';
+import Api from '../../services/api';
 
 export const PostsContext = createContext()
 
@@ -11,10 +12,11 @@ export const PostsProvider = ({ children }) => {
     const [isEditVisible, setIsEditVisible]     = useState(false)
     const [isDeleteVisible, setIsDeleteVisible] = useState(false)
 
-    useEffect(() => {
-        //requisição setPostList()
+    /* useEffect(() => {
+        Api.get('posts')
+        .then(res => setPostList(res.data))
     }, [])
-
+ */
     return (
 
         <PostsContext.Provider value={{

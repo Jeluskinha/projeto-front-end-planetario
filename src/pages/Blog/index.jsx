@@ -1,27 +1,38 @@
 import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
 import IconClose from '../../assets/IconClose'
-import IconConfig from '../../assets/IconConfig'
 import IconCreatePost from '../../assets/IconCreatePost'
-import IconDelete from '../../assets/IconDelete'
-import IconEmail from '../../assets/IconEmail'
 import IconLogout from '../../assets/IconLogout'
 import IconMenuBurger from '../../assets/IconMenuBurger'
 import IconProfile from '../../assets/IconProfile'
 import IconRocket from '../../assets/IconRocket'
-import IconSchool from '../../assets/IconSchool'
+
 
 import { HeaderContainer } from '../../components/Header/styles'
-import Modal from '../../components/Modal'
 import Post from '../../components/Post'
+
 import { BlogContext } from '../../context/blog'
 import { PostsContext } from '../../context/posts'
+import ModalCreate from '../../components/ModalCreate';
+import ModalDelete from '../../components/ModalDelete';
+import ModalEdit from '../../components/ModalEdit';
+import ModalProfile from '../../components/ModalProfile';
 
 const Blog = () => {
 
     const { isHeaderVisible, setIsHeaderVisible, isProfileVisible, setIsProfileVisible } = useContext(BlogContext)
-    const { postsList, postOnFocus, isCreateVisible, isEditVisible, isDeleteVisible } = useContext(PostsContext)
+    const { postsList, isCreateVisible, setIsCreateVisible,isEditVisible, isDeleteVisible} = useContext(PostsContext)
+
+    const navigate = useNavigate()
+
+    function logout() {
+        localStorage.removeItem()
+        localStorage.removeItem()
+
+        navigate('/login', { replace:true })
+    }
 
     return (
         <div>
@@ -31,9 +42,9 @@ const Blog = () => {
 
                         <HeaderContainer>
 
-                            <button> <IconRocket/>  </button>
-                            <button> <IconProfile/> </button>
-                            <button> <IconLogout/>  </button>
+                            <button onClick={() => navigate('/', { replace: true })}> <IconRocket/> </button>
+                            <button onClick={() => setIsProfileVisible(true)}> <IconProfile/> </button>
+                            <button onClick={() => logout()}> <IconLogout/> </button>
                             
                         </HeaderContainer>
                     :
@@ -41,31 +52,31 @@ const Blog = () => {
 
                             <HeaderContainer>
 
-                                <button className="button-menu"> <IconMenuBurger/> </button>
+                                <button className='button-menu' onClick={() => setIsHeaderVisible(true)}> <IconMenuBurger/> </button>
 
                             </HeaderContainer>
                         :
                             <header>
 
-                                <div className="header_div">
+                                <div className='header_div'>
 
-                                <button> <IconRocket/>  </button>
-                                <button> <IconProfile/> </button>
-                                <button> <IconLogout/>  </button>
+                                    <button onClick={() => navigate('/', { replace: true })}> <IconRocket/> </button>
+                                    <button onClick={() => setIsProfileVisible(true)}> <IconProfile/> </button>
+                                    <button onClick={() => logout()}> <IconLogout/> </button>
 
                                 </div>
 
-                                <button className="btn-close"> <IconClose/> </button>
+                                <button className='btn-close' onClick={() => setIsHeaderVisible(false)}> <IconClose/> </button>
 
                             </header>
                 }
             </>
             <main>
 
-                <div className="div-createPost">
+                <div className='div-createPost'> 
 
                     <p>Adicone uma nova postagem</p>
-                    <button className="btn-create"> <IconCreatePost/> </button>
+                    <button className='btn-create' onClick={() => setIsCreateVisible(true)}> <IconCreatePost/> </button>
 
                 </div>
 
@@ -77,142 +88,13 @@ const Blog = () => {
 
             </main>
 
-            {
-                isCreateVisible === true 
-                &&
-                <Modal>
+            { isCreateVisible === true && <ModalCreate/> }
 
-                    <div className='modal_create'>
+            { isEditVisible === true && <ModalEdit/> }
 
-                        <IconClose/>
+            { isDeleteVisible === true && <ModalDelete/> }
 
-                        <div className='container-input'>
-
-                            <label htmlFor="input_createPost"> Título </label>
-                            <input type="text" id='input_createPost' placeholder='Digite aqui o título da sua publicação'/>
-
-                        </div>
-
-                        <div className='container_textare'>
-
-                            <label htmlFor="create_post"> Publicação </label>
-                            <textarea id="create_post" placeholder='Digite aqui suas ideias e opiniões'></textarea>
-
-                        </div>
-
-                        <button> Publicar! </button>
-
-                    </div>
-
-                </Modal>
-           }
-
-           {
-                isEditVisible === true 
-                &&
-                <Modal>
-
-                    <div className='modal_edit'>
-
-                        <IconClose/>
-
-                        <div className='container-input'>
-
-                            <label htmlFor="input_createPost"> Título </label>
-                            <input type="text" id='input_createPost' value={postOnFocus.title}/>
-
-                        </div>
-
-                        <div className='container-textarea'>
-
-                            <label htmlFor=""> Publicação </label>
-                            <textarea id="create_post" value={postOnFocus.resume}></textarea>
-
-                        </div>
-
-                        <button> Alterar </button>
-
-                    </div>
-
-                </Modal>
-           }
-
-           {
-                isDeleteVisible === true 
-                &&
-                <Modal>
-
-                    <div className='modal_delete'>
-
-                        <div className='delete_info'>
-
-                            <figure>
-                                <IconDelete/>
-                            </figure>
-
-                            <h4> user.name , tem certeza que quer excluir essa publicação? </h4>
-                            <p> Você não poderá desfazer essa ação. </p>
-
-                        </div>
-
-                        <div className='delete_btns'>
-
-                            <button> Cancelar </button>
-                            <button> Excluir </button>
-
-                        </div>
-
-
-                    </div>
-
-                </Modal>
-           }
-
-            {
-                isProfileVisible === true 
-                &&
-                <Modal>
-
-                    <div>
-
-                        <h3> usuario.nickname </h3>
-
-                        <figure>
-                            <img src='user.image' alt='Foto de perfil' />
-                        </figure>
-
-                        <section>
-
-                            <div>
-
-                                <figure>
-                                    <IconSchool/>
-                                </figure>
-
-                                <span>user.type</span>
-
-                            </div>
-
-                            <div>
-
-                                <figure>
-                                    <IconEmail/>
-                                </figure>
-
-                                <span>user.email</span>
-
-                            </div>
-
-                        </section>
-
-                        <button>
-                            <IconConfig/>
-                        </button>
-
-                    </div>
-
-                </Modal>
-           }
+            { isProfileVisible === true && <ModalProfile/> }
 
         </div>
     )
