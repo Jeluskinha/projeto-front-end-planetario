@@ -272,7 +272,7 @@ base_url/posts/{post_id}
 }
 ```
 
-### DELTE - DELETE POST
+### DELETE - DELETE POST
 
 base_url/posts/{post_id}
 
