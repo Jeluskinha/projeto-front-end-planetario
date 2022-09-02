@@ -20,6 +20,7 @@ import ModalDelete from '../../components/ModalDelete';
 import ModalEdit from '../../components/ModalEdit';
 import ModalProfile from '../../components/ModalProfile';
 import Logo from '../../assets/Logo'
+import { BlogContainer } from './styles'
 
 const Blog = () => {
 
@@ -36,7 +37,7 @@ const Blog = () => {
     }
 
     return (
-        <div>
+        <BlogContainer>
             <>
                 {
                     window.matchMedia('(min-width: 1024px)').matches ?
@@ -121,7 +122,7 @@ const Blog = () => {
 
             { isProfileVisible === true && <ModalProfile/> }
 
-        </div>
+        </BlogContainer>
     )
 }
 
