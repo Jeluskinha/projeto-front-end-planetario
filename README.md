@@ -2,7 +2,7 @@
 
 base_url: [https://planeteryproject.herokuapp.com](https://planeteryproject.herokuapp.com/)
 
-* All routes need AUTHENTICATION (TOKEN) , except for login and registration
+* All routes need AUTHENTICATION (TOKEN) , except for login, registration and planets
 
 ## PLANETS 
 
