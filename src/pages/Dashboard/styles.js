@@ -35,16 +35,38 @@ export const DashboardContainer = styled.div`
     }
 
     main {
-        width: 100%;
-        height: 90%;
-
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: flex-end;
+        div{
+            min-height: 100%;  
+            width: 10%;
+            display: flex;
+            align-items: center;
+            figure{
+                height: 100%;
+                width: 400px;
+                left: 0px;
+                display: flex;
+                align-items: center; 
+                z-index: 1;
+                position: absolute;
+                left: -220px;
+                flex-shrink: 1;
+                img{
+                    height: 101%;
+                    width: 100%;
+                    border-radius: 0 60% 60% 0;
+                }
+            }
+        }
         ul {
-            width: 100%;
+            min-height: 100%;
+            width: 90%;
             height: max-content;
+            justify-content: flex-end;
 
-            padding-bottom: 25px;
-        
-            gap: 20px;
             display: flex;
             align-items: center;
             flex-direction: row;
@@ -53,11 +75,13 @@ export const DashboardContainer = styled.div`
             overflow: auto;
             
             list-style: none;
+            position: relative;
         };
         
-        section {
+        /* section {
             width: 100%;
             height: 50.5%;
+            display: none;
 
             padding: 5% 3%;
         
@@ -119,6 +143,6 @@ export const DashboardContainer = styled.div`
                     text-align: center;
                 }
             }
-        }
+        } */
     }
 `

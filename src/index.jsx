@@ -1,19 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import { BrowserRouter } from "react-router-dom";
-import GlobalStyle from "./globalStyle/reset";
-import { DashboardProvider } from "./context/dashboard";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+import { BrowserRouter } from 'react-router-dom';
+import GlobalStyle from './globalStyle/reset';
+import Providers from './context';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-   <GlobalStyle/>
-        <DashboardProvider>
-        <App />
-        </DashboardProvider>
-      
+      <GlobalStyle/>
+        <Providers>
+          <App />
+        </Providers>
     </BrowserRouter>
   </React.StrictMode>
 );

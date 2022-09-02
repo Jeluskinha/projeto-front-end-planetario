@@ -68,10 +68,20 @@ const Dashboard = () => {
 
             <main onClick={() => setIsHeaderVisible(false)}>
 
+                <div>
+                    <figure>
+                        {planetsList.map(planet =>  planet.id == 0 &&
+                        <img src={planet.image}></img>
+                        )}
+                    </figure>
+                </div>
+
                 <ul>
 
                     {
-                        planetsList.map(planet => <Planet 
+                        planetsList.map(planet => 
+                        planet.id > 0 &&
+                        <Planet 
                             key={uuid()} 
                             planet={planet} 
                             onClick={() => setPlanetOnFocusDesktop(planet)}
@@ -80,11 +90,15 @@ const Dashboard = () => {
 
                 </ul>
 
-                {
-                    window.matchMedia('(min-width: 1024px)').matches ?
+                
+               
+            </main>
+
+            {
+                    window.matchMedia('(min-width: 1024px)').matches && // ? substituido por && para poder comentar o section
 
                     
-                        planetOnFocusDesktop && 
+                        // planetOnFocusDesktop && 
 
                             <Modal>
 
@@ -102,32 +116,30 @@ const Dashboard = () => {
 
                             </Modal>
         
-                    : 
+                    // : 
 
-                        <section>
+                        // <section>
 
-                            <div className='header_description'>
+                        //     <div className='header_description'>
 
-                                <IconArrowLeft onClick={() => {toLeft()}}/>
+                        //         <IconArrowLeft onClick={() => {toLeft()}}/>
 
-                                <h1 className='info_title'> {planetInfo?.name} </h1>
+                        //         <h1 className='info_title'> {planetInfo?.name} </h1>
 
-                                <IconArrowRight onClick={() => {toRight()}}/>
+                        //         <IconArrowRight onClick={() => {toRight()}}/>
 
-                            </div>
+                        //     </div>
 
-                            <div>
+                        //     <div>
 
-                                <p className='info_resume'> {planetInfo?.resume} </p>
+                        //         <p className='info_resume'> {planetInfo?.resume} </p>
 
-                                <span className='info_link'> {planetInfo?.link} </span>
+                        //         <span className='info_link'> {planetInfo?.link} </span>
 
-                            </div>
+                        //     </div>
 
-                        </section>
+                        // </section>
                 }
-               
-            </main>
 
         </DashboardContainer>
         

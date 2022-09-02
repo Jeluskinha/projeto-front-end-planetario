@@ -1,20 +1,25 @@
 import styled from 'styled-components';
 
 export const PlanetContainer = styled.li`
-    min-width: 100vw;
-    min-height: 240px;
-
+    width: 200px;
+    height: 100px;  
     border-radius: 50%;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-
-    img {
-        width: 70%;
+    
+    figure{
+        margin: 0 auto;
+        width: 100%;
+        img {
+        width: 100%;
         height: 100%;
     }
+    }
+
+    
 
     
 `
