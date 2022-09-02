@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
     --Sucess: #3FE864;
     --Negative: #E83F5B;
     --fontInter: url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;700&family=Inter:wght@100;200;300;400;500;600;700;800&family=Montserrat:ital,wght@0,100;0,200;0,400;0,500;1,500&family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap');
-
+      
     
     font-size: 60%;   
   }
