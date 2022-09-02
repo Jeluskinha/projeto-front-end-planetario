@@ -3,13 +3,14 @@ import styled from 'styled-components';
 export const DashboardContainer = styled.div`
     width: 100vw;
     height: 100vh;
+    padding: 0;
 
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
 
-    background-image: url('https://premiumcoding.com/wp-content/uploads/2014/02/space-background1.png');
+    background-image: url('https://i.pinimg.com/originals/29/bd/dd/29bddd30d3ddde8f3ea6ac017e33f95b.jpg');
     background-repeat: no-repeat, repeat;
     background-position: center;
     background-size: cover;
@@ -35,8 +36,8 @@ export const DashboardContainer = styled.div`
     }
 
     main {
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         display: flex;
         justify-content: flex-end;
         div{
@@ -44,7 +45,7 @@ export const DashboardContainer = styled.div`
             width: 10%;
             display: flex;
             align-items: center;
-            figure{
+            #sun__dashboard{
                 height: 100%;
                 width: 400px;
                 left: 0px;
@@ -63,14 +64,15 @@ export const DashboardContainer = styled.div`
         }
         ul {
             min-height: 100%;
-            width: 90%;
+            min-width: 90%;
             height: max-content;
-            justify-content: flex-end;
+            right: 0;
 
             display: flex;
             align-items: center;
             flex-direction: row;
-            justify-content: flex-start;
+            justify-content: space-between;
+
         
             overflow: auto;
             
@@ -144,5 +146,12 @@ export const DashboardContainer = styled.div`
                 }
             }
         } */
+
+        @media (max-width: 1250px) {
+            #sun__dashboard{
+                max-height: 90%;
+                max-width: 380px;
+            }
+        }
     }
 `

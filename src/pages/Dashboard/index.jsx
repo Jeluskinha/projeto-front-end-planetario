@@ -69,22 +69,22 @@ const Dashboard = () => {
             <main onClick={() => setIsHeaderVisible(false)}>
 
                 <div>
-                    <figure>
-                        {planetsList.map(planet =>  planet.id == 0 &&
-                        <img src={planet.image}></img>
+                    <figure id='sun__dashboard'>
+                        {planetsList.map(planet =>  planet.id === "0" &&
+                        <img src={planet.image} key={planet.id} alt={planet.resume}/>
                         )}
                     </figure>
                 </div>
 
                 <ul>
-
                     {
                         planetsList.map(planet => 
                         planet.id > 0 &&
                         <Planet 
-                            key={uuid()} 
+                            key={planet.id} 
                             planet={planet} 
-                            onClick={() => setPlanetOnFocusDesktop(planet)}
+                            onClick={() => setPlanetOnFocusDesktop(planet)
+                            }
                         />) 
                     }       
 
