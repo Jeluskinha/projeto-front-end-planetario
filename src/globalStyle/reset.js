@@ -1,41 +1,30 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     :root {
-    --Blue-3: #4169e1;
-    --Blue-2: #056CF2;
-    --Blue-1: #05AFF2;
-    --Blue-background:  rgb(5, 175, 242, 0.1);
-    --Blue-background2:  rgb(5, 175, 242, 0.5);
-    --Brown-4: #c98644;
-    --Brown-3: #d1aa84;
-    --Brown-2: #dbc4ad;
-    --Brown-1: #F2E7DC;
-    --Green-3: #027373;
-    --Green-2: #038C7F;
-    --Green-1: #A9D9D0;
-    --Green-background:  rgb(63, 232, 100, 0.1);
-    --Green-background2:  rgb(63, 232, 100, 0.5);
-    --Color-primary:#FF577F;
-    --Color-primary-Focus: #FF427F;
-    --Color-primary-Negative: #59323F;
-    --White: #FFFFFF;
-    --Grey-4: #121214;
-    --Grey-3: #212529;
-    --Grey-2: #343B41;
-    --Grey-1: #868E96;
-    --Grey-0: #F8F9FA;
-    --Grey-background:  rgb(134, 142, 150, 0.1);
-    --Grey-background2:  rgb(134, 142, 150, 0.5);
-    --Sucess: #3FE864;
-    --Negative: #E83F5B;
-    --fontInter: url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;700&family=Inter:wght@100;200;300;400;500;600;700;800&family=Montserrat:ital,wght@0,100;0,200;0,400;0,500;1,500&family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap');
+      --Color-red: rgba(217, 20, 20, 1);
+      --Color-white: rgba(255, 255, 255, 1);
+      --Color-black: rgba(0, 0, 0, 1);
 
-    
-    font-size: 60%;   
+      --Color-grey-1: rgba(249, 248, 255, 0.81);
+      --Color-grey-2: rgba(85, 85, 85, 1);
+      --Color-grey-3: rgba(22, 22, 22, 9.5);
+
+      --Color-blue-1: 102, 147, 231;
+      --Color-blue-2: rgba(38, 78, 154, 1);
+      --Color-blue-3: rgba(59, 77, 114, 1);
+
+      --Color-success: rgba(81, 189, 101, 1);
+      --Color-error: rgba(253, 80, 80, 1);
+      --Color-focus: rgba(53, 135, 230, 1);
+      --Color-especial: linear-gradient(rgba(82, 0, 255, 1), rgba(9, 134, 249, 0.95));
+   
+      --fontInter: url('https://fonts.googleapis.com/css2?family=Geo&family=Orbitron:wght@400;700&display=swap');
+
+      font-size: 60%;   
   }
 
-  @media (min-width: 700px) {
+  @media (min-width: 1024px) {
     :root {
       font-size: 62.5%;
     }
@@ -49,27 +38,29 @@ const GlobalStyle = createGlobalStyle`
     font-family: var(--fontInter);
   }
 
-  body,html{
+  body, html{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
   }
 
   body {
-    background: var(--color-background);
-    color: var(--color-text);
+    color: var(--Color-white);
     -webkit-font-smoothing: antialiased;
 
     overflow-x: hidden;
   }
 
   body, input, button, textarea {
-    font-family: 'Roboto';
-    font-size: 1.6rem;
+    font-size: 1rem;
+    font-size: 400;
+    font-family: 'Geo', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6, strong {
+    font-size: 1.6rem;
     font-weight: 500;
+    font-family: 'Orbitron', sans-serif;
   }
 
   button {
@@ -83,20 +74,20 @@ const GlobalStyle = createGlobalStyle`
 
   /* Track */
   ::-webkit-scrollbar-track {
-    background: var(--color-text-light);
     margin: 1rem;
+    background: var(--Color-grey-1);
     border-radius: 1.6rem;
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: var(--color-primary-dark);
+    background: var(--Color-grey-2);
     border-radius: 1.6rem;
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-primary);
+    background: var(--Color-grey-2);
   }
 `;
 export default GlobalStyle 
