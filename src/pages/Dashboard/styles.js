@@ -123,7 +123,7 @@ export const DashboardContainer = styled.div`
                     position: absolute;
                     top: 0;
                     right: 0;
-              
+                    transform: translateY(${props => -props.count}px);
                     #sun__dashboard{
                         position: absolute; 
                         z-index: 5000;      
