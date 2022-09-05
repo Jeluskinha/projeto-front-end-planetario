@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
-export const HeaderContainer = styled.header`
-    width: 100%;
-    height: 10%;
-    min-height: 45px;
-
+export const HeaderContainer = styled.aside`
+    min-width: 100%;
+    min-height: 50px;
     padding: 0 5%;
 
     gap: 60px;

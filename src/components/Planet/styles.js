@@ -73,4 +73,42 @@ export const PlanetContainer = styled.li`
             bottom: 100%;
         }
     }
+    @media (max-width: 650px) {
+        min-height: 60px;
+        width: 100vw;
+        
+        figure{
+            min-height: 100%;
+            max-width: 200px;
+        }
+
+        @keyframes planetAnimation{
+          0%{
+            left: -50%;
+            top: -70%;
+          }  
+          25%{
+            top: 25%;
+          }  
+          40%{
+            top: 60%;
+          }  
+          45%{
+            top: 70%;
+          }  
+          55%{
+            top: 70%;
+          }  
+          60%{
+            top: 60%;
+          }  
+          75%{
+            top: 25%;
+          }  
+          100%{
+            left: 100%;
+            top: -70%;
+          }   
+        }
+    }
 `
