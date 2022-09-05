@@ -12,11 +12,12 @@ export const PostsProvider = ({ children }) => {
     const [isEditVisible, setIsEditVisible]     = useState(false)
     const [isDeleteVisible, setIsDeleteVisible] = useState(false)
 
-    /* useEffect(() => {
+    useEffect(() => {
+        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjE0MzYxMSwiZXhwIjoxNjYyMTQ3MjExLCJzdWIiOiJXYkRscHZtIn0.ignUlmLScLqjSPDk5Ed26ifLHExHJ49-INcBpt8di98`
         Api.get('posts')
         .then(res => setPostList(res.data))
     }, [])
- */
+ 
     return (
 
         <PostsContext.Provider value={{

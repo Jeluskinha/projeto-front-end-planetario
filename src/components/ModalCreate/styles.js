@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ModalContainer = styled.form`
+export const ModalContainer = styled.div`
     height: 100vh;
 
     display: flex;
