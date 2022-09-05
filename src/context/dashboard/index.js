@@ -23,9 +23,7 @@ export const DashboardProvider = ({ children }) => {
             isHeaderVisible, setIsHeaderVisible,
             planetOnFocusDesktop, setPlanetOnFocusDesktop
         }}>
-
             {children}
-
         </DashboardContext.Provider>
     );
 };

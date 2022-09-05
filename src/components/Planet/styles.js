@@ -2,18 +2,75 @@ import styled from 'styled-components';
 
 export const PlanetContainer = styled.li`
     width: 200px;
-    height: 100px;  
+    height: 100vh;  
     border-radius: 50%;
+    position: relative;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
+    figure{
+        margin: 0 auto;
+        width: 100%;
+        position: absolute;
+        animation: planetAnimation 15s linear infinite;
 
-    img {
-        width: 70%;
-        height: 100%;
+        //animation: Terra 5s linear infinite;
+        &.Mercúrio {
+            animation-duration: 3s;
+        }
+        &.Vênus {
+            animation-duration: 5s;
+        }
+        &.Terra {
+            animation-duration: 8s;
+        }
+        &.Marte {
+            animation-duration: 12s;
+        }
+        &.Júpiter {
+            animation-duration: 15s;
+        }
+        &.Saturno {
+            animation-duration: 20s;
+        }
+        &.Urano {
+            animation-duration: 26s;
+        }
+        &.Netuno {
+            animation-duration: 30s;
+        }
+            img {
+            width: 100%;
+            height: 100%;
+            }
+    }  
+    @keyframes planetAnimation {
+        0%{
+            left: -15%;
+            bottom: 0;
+        }
+        25%{
+            left: 15%;
+            bottom: 25%;
+        }
+        40%{
+            left: 30%;
+            bottom:40%;
+        }
+        60%{
+            left: 30%;
+            bottom:60%;
+        }
+
+        75%{
+            left: 15%;
+            bottom: 75%;
+        }
+        100%{
+            left: -15%;
+            bottom: 100%;
+        }
     }
-
-    
 `
