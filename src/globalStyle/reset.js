@@ -18,8 +18,6 @@ const GlobalStyle = createGlobalStyle`
       --Color-error: rgba(253, 80, 80, 1);
       --Color-focus: rgba(53, 135, 230, 1);
       --Color-especial: linear-gradient(rgba(82, 0, 255, 1), rgba(9, 134, 249, 0.95));
-   
-      --fontInter: url('https://fonts.googleapis.com/css2?family=Geo&family=Orbitron:wght@400;700&display=swap');
 
       font-size: 60%;   
   }
@@ -35,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     outline:0;
     box-sizing: border-box;
-    font-family: var(--fontInter);
+    font-family: 'Geo', sans-serif;
   }
 
   body, html{
@@ -49,12 +47,6 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
 
     overflow-x: hidden;
-  }
-
-  body, input, button, textarea {
-    font-size: 1rem;
-    font-size: 400;
-    font-family: 'Geo', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6, strong {

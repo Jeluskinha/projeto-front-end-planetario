@@ -10,7 +10,7 @@ const ModalDelete = () => {
     const { setIsDeleteVisible } = useContext(PostsContext)
 
     function deletePost() {
-        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjE0MTMxNywiZXhwIjoxNjYyMTQ0OTE3LCJzdWIiOiJXYkRscHZtIn0.CDVsONiPlOmF7MhnAJmc1GHdkC058B7wZPzloeupGfg`
+        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjM4MTc0MSwiZXhwIjoxNjYyMzg1MzQxLCJzdWIiOiJ6eUJDNFVNIn0.k2J1a7uXZrcWSIeqqlDJi51H8tWeCYeExpwYfBM48bk`
 
         Api.delete(`posts/${localStorage.getItem('@Post_ID')}`)
         .then(res => console.log(res))

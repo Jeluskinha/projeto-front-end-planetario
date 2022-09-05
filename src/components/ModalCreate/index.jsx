@@ -19,7 +19,7 @@ const ModalCreate = () => {
     })
 
     function createPost(data) {
-        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjE0MTMxNywiZXhwIjoxNjYyMTQ0OTE3LCJzdWIiOiJXYkRscHZtIn0.CDVsONiPlOmF7MhnAJmc1GHdkC058B7wZPzloeupGfg`
+        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjM4MTc0MSwiZXhwIjoxNjYyMzg1MzQxLCJzdWIiOiJ6eUJDNFVNIn0.k2J1a7uXZrcWSIeqqlDJi51H8tWeCYeExpwYfBM48bk`
 
         Api.post('users/WbDlpvm/posts', data)
         .then(res => console.log(res))
@@ -32,7 +32,7 @@ const ModalCreate = () => {
     return (
 
         <ModalContainer onClick={(e) => {
-            e.target.className !== 'modal_create' && setIsCreateVisible(false)
+            e.target.className === 'sc-dkzDqf zdyql' && setIsCreateVisible(false)
         }}>
 
             <form className='modal_create' onSubmit={handleSubmit(createPost)}>

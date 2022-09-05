@@ -11,11 +11,11 @@ const Post = ({ post }) => {
     const [ user, setUser ] = useState({})
 
     useEffect(() => {
-        Api.get(`users/${post.userId}`)
+        Api.get(`users/zyBC4UM`)
         .then(res => setUser(res.data))
         .catch(err => console.log(err))
     }, [post])
-
+    
     return (
 
         <PostContainer>
