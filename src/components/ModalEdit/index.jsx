@@ -19,7 +19,7 @@ const ModalEdit = () => {
     })
 
     function changePost(data) {
-        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjM4MTc0MSwiZXhwIjoxNjYyMzg1MzQxLCJzdWIiOiJ6eUJDNFVNIn0.k2J1a7uXZrcWSIeqqlDJi51H8tWeCYeExpwYfBM48bk`
+        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjQwMDc5NCwiZXhwIjoxNjYyNDA0Mzk0LCJzdWIiOiJ6eUJDNFVNIn0.F-d2M6dKDmfa6r4OhYUG8pkfdQ4q4Z-SvxcA7q1NpRY`
 
         Api.patch(`posts/${localStorage.getItem('@Post_ID')}`, data)
         .then(res => console.log(res))
@@ -31,8 +31,8 @@ const ModalEdit = () => {
     
     return (
 
-        <ModalContainer onClick={(e) => {
-            e.target.className === 'sc-eCYdqJ tMJWD' && setIsEditVisible(false)
+        <ModalContainer className='modal_container' onClick={(e) => {
+            e.target.className.includes('modal_container') && setIsEditVisible(false)
         }}>
 
             <form className='modal_edit' onSubmit={handleSubmit(changePost)}>

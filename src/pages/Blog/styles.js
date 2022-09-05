@@ -16,10 +16,16 @@ export const BlogContainer = styled.div`
     background-position: center;
     background-size: cover;
 
+    overflow: auto;
+
+    &&::-webkit-scrollbar {
+        width: 0px;
+    }
+
     main {
         width: 100%;
         height: 85%;
-        padding: 5%;
+        padding: 2% 5% 5% 5%;
 
         gap: 9%;
         display: flex;
@@ -34,7 +40,7 @@ export const BlogContainer = styled.div`
 
             height: 8%;
             min-height: 40px;
-            max-height: 55px;
+            max-height: 90px;
 
             padding: 10px 2%;
 
@@ -68,6 +74,8 @@ export const BlogContainer = styled.div`
             width: 100%;
             min-width: 288px;
             max-width: 713px;
+
+            padding-bottom: 40px;
 
             height: fit-content;
 

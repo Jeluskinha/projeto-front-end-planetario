@@ -11,13 +11,13 @@ const GlobalStyle = createGlobalStyle`
       --Color-grey-3: rgba(22, 22, 22, 9.5);
 
       --Color-blue-1: 102, 147, 231;
-      --Color-blue-2: rgba(38, 78, 154, 1);
+      --Color-blue-2: rgba(38, 52, 79, 1);
       --Color-blue-3: rgba(59, 77, 114, 1);
 
       --Color-success: rgba(81, 189, 101, 1);
       --Color-error: rgba(253, 80, 80, 1);
       --Color-focus: rgba(53, 135, 230, 1);
-      --Color-especial: linear-gradient(rgba(82, 0, 255, 1), rgba(9, 134, 249, 0.95));
+      --Color-especial: rgba(82, 0, 255, 1);
 
       font-size: 60%;   
   }

@@ -10,13 +10,12 @@ const ModalDelete = () => {
     const { setIsDeleteVisible } = useContext(PostsContext)
 
     function deletePost() {
-        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjM4MTc0MSwiZXhwIjoxNjYyMzg1MzQxLCJzdWIiOiJ6eUJDNFVNIn0.k2J1a7uXZrcWSIeqqlDJi51H8tWeCYeExpwYfBM48bk`
+        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjQwMDc5NCwiZXhwIjoxNjYyNDA0Mzk0LCJzdWIiOiJ6eUJDNFVNIn0.F-d2M6dKDmfa6r4OhYUG8pkfdQ4q4Z-SvxcA7q1NpRY`
 
         Api.delete(`posts/${localStorage.getItem('@Post_ID')}`)
         .then(res => console.log(res))
         .catch(err => console.log(err))
         .finally(setIsDeleteVisible(false))
-        
     }
 
     return (
@@ -36,8 +35,8 @@ const ModalDelete = () => {
 
             <div className='delete_btns'>
 
-                <button onClick={() => setIsDeleteVisible(false)}> Cancelar </button>
-                <button onClick={() => deletePost}> Excluir </button>
+                <button id='button-cancel' onClick={() => setIsDeleteVisible(false)}> Cancelar </button>
+                <button id='button-delete' onClick={() => deletePost}> Excluir </button>
 
             </div>
 

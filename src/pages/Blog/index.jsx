@@ -108,7 +108,7 @@ const Blog = () => {
 
                 <ul>
                     {
-                        postsList.map(post => <Post key={uuid()} post={post}/>)
+                        postsList.reverse().map(post => <Post key={uuid()} post={post}/>)
                     }
                 </ul>
 

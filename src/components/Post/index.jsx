@@ -11,10 +11,10 @@ const Post = ({ post }) => {
     const [ user, setUser ] = useState({})
 
     useEffect(() => {
-        Api.get(`users/zyBC4UM`)
+        Api.get(`users/${post.userId}`)
         .then(res => setUser(res.data))
         .catch(err => console.log(err))
-    }, [post])
+    }, [])
     
     return (
 
@@ -23,8 +23,8 @@ const Post = ({ post }) => {
             <header>
 
                 <h3> {post?.title} </h3>
-                {
-                    post?.userId === 'WbDlpvm'
+                {   
+                    post?.userId === 'zyBC4UM'
                     && 
                     <div>
 

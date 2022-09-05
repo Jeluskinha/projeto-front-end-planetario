@@ -13,7 +13,7 @@ export const PostsProvider = ({ children }) => {
     const [isDeleteVisible, setIsDeleteVisible] = useState(false)
 
     useEffect(() => {
-        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjM4NTM5MiwiZXhwIjoxNjYyMzg4OTkyLCJzdWIiOiJ6eUJDNFVNIn0.IsvtMeNyERBDUNwfLMM3OdnFwLfq4PH2Z2tlO1wgyDU`
+        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjQwMDc5NCwiZXhwIjoxNjYyNDA0Mzk0LCJzdWIiOiJ6eUJDNFVNIn0.F-d2M6dKDmfa6r4OhYUG8pkfdQ4q4Z-SvxcA7q1NpRY`
         Api.get('posts')
         .then(res => setPostList(res.data))
     }, [])
