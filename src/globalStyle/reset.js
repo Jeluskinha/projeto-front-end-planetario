@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-    :root {
+    :root { 
       --Color-red: rgba(217, 20, 20, 1);
       --Color-white: rgba(255, 255, 255, 1);
       --Color-black: rgba(0, 0, 0, 1);
@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
    
       --fontInter: url('https://fonts.googleapis.com/css2?family=Geo&family=Orbitron:wght@400;700&display=swap');
 
-      font-size: 60%;   
+      font-size: 60%;
   }
 
   @media (min-width: 1024px) {
