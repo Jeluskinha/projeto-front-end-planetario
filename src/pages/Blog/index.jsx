@@ -19,6 +19,8 @@ import ModalCreate from '../../components/ModalCreate';
 import ModalDelete from '../../components/ModalDelete';
 import ModalEdit from '../../components/ModalEdit';
 import ModalProfile from '../../components/ModalProfile';
+import Logo from '../../assets/Logo'
+import { BlogContainer } from './styles'
 
 const Blog = () => {
 
@@ -35,16 +37,26 @@ const Blog = () => {
     }
 
     return (
-        <div>
+        <BlogContainer>
             <>
                 {
                     window.matchMedia('(min-width: 1024px)').matches ?
 
                         <HeaderContainer>
 
-                            <button onClick={() => navigate('/', { replace: true })}> <IconRocket/> </button>
-                            <button onClick={() => setIsProfileVisible(true)}> <IconProfile/> </button>
-                            <button onClick={() => logout()}> <IconLogout/> </button>
+                            <div className='header_div-logo'>
+
+                                <Logo/>
+
+                            </div>
+
+                            <div className='header_div-extra'>
+
+                                <button onClick={() => navigate('/', { replace: true })}> <IconRocket/> </button>
+                                <button onClick={() => setIsProfileVisible(true)}> <IconProfile/> </button>
+                                <button onClick={() => logout()}> <IconLogout/> </button>
+
+                            </div>
                             
                         </HeaderContainer>
                     :
@@ -52,11 +64,25 @@ const Blog = () => {
 
                             <HeaderContainer>
 
-                                <button className='button-menu' onClick={() => setIsHeaderVisible(true)}> <IconMenuBurger/> </button>
+                                <div className='header_div-logo'>
+
+                                <Logo/>
+
+                                </div>
+
+                                <div className='header_div-extra'>
+
+                                    <button className='button-menu' onClick={() => 
+                                        setIsHeaderVisible(true)
+                                        }> 
+                                        <IconMenuBurger/> 
+                                    </button>
+
+                                </div>
 
                             </HeaderContainer>
                         :
-                            <header>
+                            <HeaderContainer>
 
                                 <div className='header_div'>
 
@@ -68,7 +94,7 @@ const Blog = () => {
 
                                 <button className='btn-close' onClick={() => setIsHeaderVisible(false)}> <IconClose/> </button>
 
-                            </header>
+                            </HeaderContainer>      
                 }
             </>
             <main>
@@ -96,7 +122,7 @@ const Blog = () => {
 
             { isProfileVisible === true && <ModalProfile/> }
 
-        </div>
+        </BlogContainer>
     )
 }
 
