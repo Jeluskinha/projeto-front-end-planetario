@@ -8,7 +8,7 @@ export const DashboardProvider = ({ children }) => {
     const [ planetsList, setPlanetList ] = useState([])
     const [ planetOnFocus, setPlanetOnFocus ] = useState(0)
     const [ planetOnFocusDesktop, setPlanetOnFocusDesktop ] = useState({})
-    const [ isHeaderVisible, setIsHeaderVisible ] = useState(false)
+    const [ isHeaderVisible, setIsHeaderVisible ] = useState(true)
 
     useEffect(() => {
         Api.get('planets')
@@ -16,7 +16,6 @@ export const DashboardProvider = ({ children }) => {
     }, []) 
 
     return (
-
         <DashboardContext.Provider value={{ 
             planetsList, setPlanetList, 
             planetOnFocus, setPlanetOnFocus,
