@@ -36,7 +36,7 @@ return(
 
 <LoginStyle>
         <div id='inColun'>    
-            <div id='textRegister'>
+            <div id='textLogin'>
                 <p className='textLoginECadastro'>  Aqui você tem acesso </p>
                 <p className='textLoginECadastro'>  ao maior </p>
                 <p className='textLoginECadastro'>  acervo de conhecimento </p>
@@ -48,7 +48,7 @@ return(
             <div id="linha-vertical"></div>        
 
         <form onSubmit={handleSubmit(loginUser)}>
-            <p id='textCadastro'>Login</p>
+            <p id='textLogin'>Login</p>
 
             <label htmlFor="email" className='labelForm'>Email:</label>
             <input type="email" id="email" { ...register('email')} className='inputForm'/>
@@ -61,7 +61,7 @@ return(
                 <button id='botaoRegistrar'>Login</button>
             </div>    
         </form>
-        <img src={logo} alt="" id='logoRegister' />
+        <img src={logo} alt="" id='logoLogin' />
     </div>
 </LoginStyle>
 

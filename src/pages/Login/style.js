@@ -10,14 +10,8 @@ export const LoginStyle = styled.body`
   background-repeat: no-repeat, repeat;
   background-position: center;
   background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 
     #inColun{
-      display: flex;
-      flex-direction: row;
       margin-right: 9%;
       margin-top: 2%;
     }
@@ -25,14 +19,12 @@ export const LoginStyle = styled.body`
     form{
       max-width: 346px;
       margin-left: 14%;
-      display: flex;
-      flex-direction: column;
     }
 
 
 
 
-    #textRegister{
+    #textLogin{
       color: white;
       font-size: 30px;
       min-width: 480px;
@@ -64,7 +56,7 @@ export const LoginStyle = styled.body`
 
     }
 
-    #botaoRegistrar{
+    #botaoLogin{
       background-color: white;
       color: black;
       width: 141px;
@@ -82,14 +74,14 @@ export const LoginStyle = styled.body`
     
     }
 
-    #textCadastro{
+    #textLogin{
       display: flex;
       color: white;
       font-size: 30px;
       justify-content: center;
     }
 
-    #logoRegister{
+    #logoLogin{
       margin-top: 3%;
     }
 

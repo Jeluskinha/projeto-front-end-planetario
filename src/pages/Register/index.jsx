@@ -35,6 +35,7 @@ const Register = () => {
         //fazer Login
     }
 
+
     return (
         <RegisterStyle>
             <div id='inColun'>
@@ -53,25 +54,33 @@ const Register = () => {
                     <p id='textCadastro'>Cadastro</p>
 
                     <label htmlFor="nickname" className='labelForm'>Apelido:</label>
+                    <div className='juncaoInputErr'>
                     <input type="text" id="nickname" {...register('nickname')} className='inputForm' />
                     <p className='mensageErr'>{errors.nickname?.message}</p>
+                    </div>
+
 
 
                     <label htmlFor="email" className='labelForm'>Email:</label>
+                    <div className='juncaoInputErr'>
                     <input type="email" id="email" {...register('email')} className='inputForm' />
                     <p className='mensageErr'>{errors.email?.message}</p>
+                    </div>
+
 
                     <label htmlFor="password" className='labelForm'>Senha:</label>
+                    <div className='juncaoInputErr'>
                     <input type="password" id="password" {...register('password')} className='inputForm' />
                     <p className='mensageErr'>{errors.password?.message}</p>
+                    </div>
+
 
                     <label htmlFor="select" className='labelForm'>Selecione uma das opções:</label>
-                    <select name="" id="" {...register('select')} className='inputForm'>
-                        <option value="1">Entusiasta</option>
-                        <option value="2">Aluno</option>
-                        <option value="3">Professor</option>
+                    <select name="" {...register('select')} className='inputForm'>
+                        <option value="1" className='option'>Entusiasta</option>
+                        <option value="2" className='option'>Aluno</option>
+                        <option value="3" className='option'>Professor</option>
                     </select>
-                    <p className='mensageErr'>{errors.select?.message}</p>
                     <div id='centralizarBotao'>
                     <button id='botaoRegistrar'>Registrar</button>
                     </div>
