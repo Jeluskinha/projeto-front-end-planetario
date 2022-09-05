@@ -36,7 +36,6 @@ const Register = () => {
 
 
     function registerUser(data) {
-      //  console.log(data)
 
             Api.post('USERS', data)
             .then( () => {
