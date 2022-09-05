@@ -11,7 +11,5 @@ const Header = ({ children }) => {
     </HeaderContainer>
   );
 };
-
-
 export default Header
 
