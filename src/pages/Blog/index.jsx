@@ -101,14 +101,14 @@ const Blog = () => {
 
                 <div className='div-createPost'> 
 
-                    <p>Adicone uma nova postagem</p>
+                    <p>Adicione uma nova postagem</p>
                     <button className='btn-create' onClick={() => setIsCreateVisible(true)}> <IconCreatePost/> </button>
 
                 </div>
 
                 <ul>
                     {
-                        postsList.map(post => <Post key={uuid()} post={post}/>)
+                        postsList.reverse().map(post => <Post key={uuid()} post={post}/>)
                     }
                 </ul>
 
