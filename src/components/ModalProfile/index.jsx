@@ -14,9 +14,9 @@ const ModalProfile = () => {
     const { setIsProfileVisible } = useContext(BlogContext)
 
     useEffect(() => {
-        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjE0MTMxNywiZXhwIjoxNjYyMTQ0OTE3LCJzdWIiOiJXYkRscHZtIn0.CDVsONiPlOmF7MhnAJmc1GHdkC058B7wZPzloeupGfg`
+        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjQwMDc5NCwiZXhwIjoxNjYyNDA0Mzk0LCJzdWIiOiJ6eUJDNFVNIn0.F-d2M6dKDmfa6r4OhYUG8pkfdQ4q4Z-SvxcA7q1NpRY`
 
-        Api.get(`users/WbDlpvm`)
+        Api.get(`users/zyBC4UM`)
         .then(res => {
             console.log(res)
             setUser(res)
@@ -27,39 +27,43 @@ const ModalProfile = () => {
 
     return (
 
-        <ModalContainer onClick={(e) => {
-            e.target.className !== 'modal_create' && setIsProfileVisible(false)
+        <ModalContainer className='modal_container' onClick={(e) => {
+            e.target.className.includes('modal_container') && setIsProfileVisible(false)
         }}>
 
-            <div>
+            <div className='modal-profile'>
 
-            <h3> {user.nickname} </h3>
+            <h3> Teste </h3>
 
-            <figure>
+            <figure className='profile_picture'>
                 <img src={user.image} alt='Foto de perfil' />
             </figure>
 
             <section>
 
-                <div>
+                <div className='profile_info'> 
 
-                    <figure> <IconSchool/> </figure>
+                    <div>
 
-                    <span>{user.type}</span>
+                        <figure> <IconSchool/> </figure>
 
+                        <span>entusiasta</span>
+
+                    </div>
+
+                    <div>
+
+                        <figure> <IconEmail/> </figure>
+
+                        <span>email.com</span>
+
+                    </div>
+                
                 </div>
 
-                <div>
-
-                    <figure> <IconEmail/> </figure>
-
-                    <span>{user.email}</span>
-
-                </div>
+                 <button> <IconConfig/> </button>
 
             </section>
-
-            <button> <IconConfig/> </button>
 
             </div>
 

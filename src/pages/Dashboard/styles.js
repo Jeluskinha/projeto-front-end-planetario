@@ -15,45 +15,47 @@ export const DashboardContainer = styled.div`
     background-position: center;
     background-size: cover;
 
-    overflow: auto;
-
-    header {
-        width: 100%;
-        height: 10%;
-        min-height: 45px;
-
-        padding: 0 5%;
-
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        justify-content: flex-start;
-
-        button {
-            border: none;
-            background-color: unset;
-        }
+    span{
+        background-color: green;
     }
+
 
     main {
         width: 100%;
         height: 100%;
         display: flex;
         justify-content: flex-end;
+
+        #header{
+            min-width: 100vw;
+            z-index: 50;
+            position: absolute;
+
+            button {
+            height: 50px;
+            width: 50px;
+            z-index: 1;
+            right: 0;
+            position:fixed;
+            border: none;
+            background-color: transparent;
+            }
+        }
         div{
             min-height: 100%;  
             width: 10%;
             display: flex;
             align-items: center;
+            z-index: 1;
             #sun__dashboard{
                 height: 100%;
                 width: 400px;
-                left: 0px;
                 display: flex;
                 align-items: center; 
                 z-index: 1;
                 position: absolute;
                 left: -220px;
+                bottom: 0px;
                 flex-shrink: 1;
                 img{
                     height: 101%;
@@ -79,8 +81,80 @@ export const DashboardContainer = styled.div`
             list-style: none;
             position: relative;
         };
-        
-        /* section {
+
+        @media (max-width: 1250px) {
+            #sun__dashboard{
+                min-height: 95%;
+                max-width: 380px;
+            }
+        }
+        @media (max-width: 1100px) {
+            #sun__dashboard{
+                max-height: 85%;
+                max-width: 360px;
+            }
+        }
+        @media (max-width: 950px) {
+            #sun__dashboard{
+                max-height: 80%;
+                max-width: 340px;
+            }
+        }
+        @media (max-width: 800px) {
+            #sun__dashboard{
+                max-height: 75%;
+                max-width: 320px;
+            }
+        }
+        // troca de layout a partir daqui
+        @media (max-width: 650px) {
+            h3{
+            font-size: 1.2rem;
+            }
+            main{
+                display: flex;
+                flex-direction: column;
+            }
+                #sun__dashboard--box{
+                    display: flex;
+                    min-height: 30%;
+                    height: 100px;
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    transform: translateY(${props => -props.count}px);
+                    #sun__dashboard{
+                        position: absolute; 
+                        z-index: 5000;      
+                        min-height: 80%;
+                        min-width:  100%;
+                        left: 0px;
+                        bottom: 0px;
+                        img{
+                            min-height: 100%;
+                            min-width: 100%;
+                            position: fixed;
+                            top: -70%;  
+                        }
+                    }
+                }
+                ul{
+                    margin-top: 100px;
+                    height: 100%;
+                    flex-direction: column;
+                    overflow: scroll;
+                    overflow-x: hidden;
+                    gap: 10rem;
+                    &::-webkit-scrollbar { // aqui estou setando a barra scrool com 0 px para não aparecer na tela
+                    width: 0px;
+                    }
+                }
+        }
+    }
+`
+
+/* section {
             width: 100%;
             height: 50.5%;
             display: none;
@@ -146,12 +220,3 @@ export const DashboardContainer = styled.div`
                 }
             }
         } */
-
-        @media (max-width: 1250px) {
-            #sun__dashboard{
-                max-height: 90%;
-                max-width: 380px;
-            }
-        }
-    }
-`

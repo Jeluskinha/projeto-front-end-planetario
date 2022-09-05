@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.aside`
-    min-width: 100%;
-    min-height: 50px;
+    min-width: 100vw;
+    height: 50px;
     padding: 0 5%;
 
     gap: 60px;
@@ -13,32 +13,18 @@ export const HeaderContainer = styled.aside`
 
     background-color: rgba(22, 22, 22, 0.95);
 
-    button {
-        width: 18%;
-        min-width: 25px;
-        max-width: 35px;
-
-        height: 50%;
-        min-height: 25px;
-        max-height: 35px;
-            
-        border: 0;
-        background-color: unset;
-    }
-
-    .button-menu {
-        width: 40%;
-        max-width: 50px;
-    }
+  
 
     .header_div-logo {
-        width: 40%;
-        min-width: 200px;
-        max-width: 220px;
+        width: 25%;
         height: 100%;
 
         display: flex;
         justify-content: flex-start;
+        svg{
+        height: 100%;
+        width: 300px;
+    }
     };
 
     .header_div-extra {
@@ -51,18 +37,10 @@ export const HeaderContainer = styled.aside`
         align-items: center;
         flex-direction: row;
         justify-content: flex-end;
-    }
-
-    .header_div {
-        width: 50%;
-        max-width: 180px;
-        height: 100%;
-
-        gap: 20px;
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        justify-content: space-between;
+        svg{
+            height: 30px;
+            width: 30px;
+        }
     }
 
     @media(min-width: 1024px){
@@ -80,5 +58,15 @@ export const HeaderContainer = styled.aside`
             height: 40%;
             max-height: 65px;
         }
-    };
+    }
+    @media(max-width: 500px){
+        .header_div-logo{
+            display: none;
+        }
+        .header_div-extra{
+            width: 100%;
+            justify-content: space-evenly;
+        }
+    }
+    ;
 `
