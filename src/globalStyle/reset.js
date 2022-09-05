@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-    :root {
+    :root { 
       --Color-red: rgba(217, 20, 20, 1);
       --Color-white: rgba(255, 255, 255, 1);
       --Color-black: rgba(0, 0, 0, 1);
@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
       --Color-focus: rgba(53, 135, 230, 1);
       --Color-especial: rgba(82, 0, 255, 1);
 
-      font-size: 60%;   
+      font-size: 60%;
   }
 
   @media (min-width: 1024px) {
