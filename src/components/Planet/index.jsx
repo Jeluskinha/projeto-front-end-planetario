@@ -1,13 +1,12 @@
 import { PlanetContainer } from './styles'
 
 const Planet = ({ planet }) => {
-    console.log(planet.id)
     return (
 
         <PlanetContainer>
-            <figure>
+            <figure className={planet.name} onClick={()=>console.log(planet.name)}>
 
-              <img src={planet.image} alt={ planet.name} />
+              <img src={planet.image} alt={ planet.resume}/>
 
             </figure>
             

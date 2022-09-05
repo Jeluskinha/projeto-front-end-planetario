@@ -19,51 +19,54 @@ const ModalEdit = () => {
     })
 
     function changePost(data) {
-        Api.defaults.headers.authorization = `Bearer ${localStorage.getItem('token')}`
+        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjE0MTMxNywiZXhwIjoxNjYyMTQ0OTE3LCJzdWIiOiJXYkRscHZtIn0.CDVsONiPlOmF7MhnAJmc1GHdkC058B7wZPzloeupGfg`
 
         Api.patch(`posts/${localStorage.getItem('@Post_ID')}`, data)
         .then(res => console.log(res))
         .catch(err => console.log(err))
+        .finally(setIsEditVisible(false))
     }
 
     const { setIsEditVisible, postOnFocus } = useContext(PostsContext)
     
     return (
 
-        <ModalContainer onSubmit={handleSubmit(changePost)}>
+        <ModalContainer onClick={(e) => {
+            e.target.className !== 'modal_create' && setIsEditVisible(false)
+        }}>
 
-            <div className='modal_edit'>
+            <form className='modal_edit' onSubmit={handleSubmit(changePost)}>
 
-            <button className='btn-close' onClick={() => setIsEditVisible(false)}>
-                <IconClose/>
-            </button> 
+                <button className='btn-close' onClick={() => setIsEditVisible(false)}>
+                    <IconClose/>
+                </button> 
 
-            <div className='container-input'>
+                <div className='container-input'>
 
-                <label htmlFor='input_createPost'> Título </label>
-                <input 
-                    type='text' 
-                    id='input_createPost' 
-                    value={postOnFocus.title}
-                    {...register('title', {required: true, maxLength: {value: 20, message: 'Número máximo de caracteres atingido'}})}
-                />
+                    <label htmlFor='input_createPost'> Título </label>
+                    <input 
+                        type='text' 
+                        id='input_createPost' 
+                        value={postOnFocus.title}
+                        {...register('title', {required: true, maxLength: {value: 20, message: 'Número máximo de caracteres atingido'}})}
+                    />
 
-            </div>
+                </div>
 
-            <div className='container-textarea'>
+                <div className='container-textarea'>
 
-                <label htmlFor='create_post'> Publicação </label>
-                <textarea 
-                    id='create_post' 
-                    value={postOnFocus.resume}
-                    {...register('post', {required: true})}
-                ></textarea>
+                    <label htmlFor='create_post'> Publicação </label>
+                    <textarea 
+                        id='create_post' 
+                        value={postOnFocus.resume}
+                        {...register('post', {required: true})}
+                    ></textarea>
 
-            </div>
+                </div>
 
-            <button type='submit'> Alterar </button>
+                <button type='submit'> Alterar </button>
 
-            </div>
+            </form>
 
         </ModalContainer>
     )

@@ -19,51 +19,54 @@ const ModalCreate = () => {
     })
 
     function createPost(data) {
-        Api.defaults.headers.authorization = `Bearer ${localStorage.getItem('token')}`
+        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjE0MTMxNywiZXhwIjoxNjYyMTQ0OTE3LCJzdWIiOiJXYkRscHZtIn0.CDVsONiPlOmF7MhnAJmc1GHdkC058B7wZPzloeupGfg`
 
-        Api.post('posts', data)
+        Api.post('users/WbDlpvm/posts', data)
         .then(res => console.log(res))
         .catch(err => console.log(err))
+        .finally(setIsCreateVisible(false))
     }
 
     const { setIsCreateVisible } = useContext(PostsContext)
 
     return (
 
-        <ModalContainer onSubmit={handleSubmit(createPost)}>
+        <ModalContainer onClick={(e) => {
+            e.target.className !== 'modal_create' && setIsCreateVisible(false)
+        }}>
 
-            <div className='modal_create'>
+            <form className='modal_create' onSubmit={handleSubmit(createPost)}>
 
-            <button className='btn-close' onClick={() => setIsCreateVisible(false)}>
-                <IconClose/>
-            </button> 
+                <button className='btn-close' onClick={() => setIsCreateVisible(false)}>
+                    <IconClose/>
+                </button> 
 
-            <div className='container-input'>
+                <div className='container-input'>
 
-                <label htmlFor='input_createPost'> Título </label>
-                <input 
-                    type='text' 
-                    id='input_createPost' 
-                    placeholder='Digite aqui o título da sua publicação'
-                    {...register('title', {required: true, maxLength: {value: 20, message: 'Número máximo de caracteres atingido'}})}
-                />
+                    <label htmlFor='input_createPost'> Título </label>
+                    <input 
+                        type='text' 
+                        id='input_createPost' 
+                        placeholder='Digite aqui o título da sua publicação'
+                        {...register('title', {required: true, maxLength: {value: 20, message: 'Número máximo de caracteres atingido'}})}
+                    />
 
-            </div>
+                </div>
 
-            <div className='container_textarea'>
+                <div className='container_textarea'>
 
-                <label htmlFor='create_post'> Publicação </label>
-                <textarea 
-                    id='create_post' 
-                    placeholder='Digite aqui suas ideias e opiniões'
-                    {...register('post', {required: true})}
-                ></textarea>
+                    <label htmlFor='create_post'> Publicação </label>
+                    <textarea 
+                        id='create_post' 
+                        placeholder='Digite aqui suas ideias e opiniões'
+                        {...register('post', {required: true})}
+                    ></textarea>
 
-            </div>
+                </div>
 
-            <button type='submit'> Publicar! </button>
+                <button type='submit'> Publicar! </button>
 
-            </div>
+            </form>
 
         </ModalContainer>
     )
