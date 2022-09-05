@@ -12,7 +12,7 @@ export const RegisterStyle = styled.body`
     src: url(${geo});
   }
 
-  background-image: url();
+  background-image: url(http://st.gde-fon.com/wallpapers_original/580996_prostranstvo_planeta_tma_svet_poverhnost_ochertani_5120x2880_www.Gde-Fon.com.jpg);
   background-repeat: no-repeat, repeat;
   background-position: center;
   background-size: cover;
@@ -20,7 +20,6 @@ export const RegisterStyle = styled.body`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: black;
 
     #inColun{
       display: flex;
@@ -37,8 +36,6 @@ export const RegisterStyle = styled.body`
       max-height: 450px;
       font-family: 'geo';
     }
-
-
 
 
     #textRegister{
@@ -71,12 +68,14 @@ export const RegisterStyle = styled.body`
     .labelForm{
       color: white;
       margin-top: 20px;
+      font-size: 20px;
     }
 
     .mensageErr{
       color: #E83F5B;
       font-family: 'geo';
-
+      font-size: 15px;
+      margin-top: 1%;
     }
 
     #botaoRegistrar{
@@ -88,7 +87,7 @@ export const RegisterStyle = styled.body`
       border-radius: 20px;
       font-size: 20px;
       margin-top: 6%;
-      font-family: 'geo';
+      font-family: 'orbitron';
     }
 
     #linha-vertical{

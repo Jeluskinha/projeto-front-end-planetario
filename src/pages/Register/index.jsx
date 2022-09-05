@@ -3,6 +3,9 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { RegisterStyle } from './style'
 import logo from '../../assets/LogoPlanetario.svg'
+import Api from '../../services/api'
+import { useNavigate } from 'react-router-dom'
+
 
 
 const schema = yup.object({
@@ -25,14 +28,23 @@ const schema = yup.object({
 
 
 const Register = () => {
+    const navigate = useNavigate()
+
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
     })
 
-    function registerUser(data) {
-        console.log(data)
 
-        //fazer Login
+    function registerUser(data) {
+      //  console.log(data)
+
+            Api.post('USERS', data)
+            .then( () => {
+                navigate('/login', {replace: true}) 
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
 

@@ -4,6 +4,7 @@ import * as yup from 'yup'
 import { useNavigate } from 'react-router-dom'
 import { LoginStyle } from './style'
 import logo from '../../assets/LogoPlanetario.svg'
+import Api from '../../services/api'
 
 
 const schema = yup.object({
@@ -24,13 +25,15 @@ const {register, handleSubmit,  formState: { errors }} = useForm({
 function loginUser(data){
     console.log(data)
 
-    //fazer Login
-
-    navigate('/dashbord', {replace: true})
+    Api.post('login', data)
+    .then( (response) => {
+        localStorage.setItem('@plantaryM3:token', response.data.accessToken)
+        navigate('/blog', {replace: true}) 
+    })
+    .catch((error) => {
+        console.log(error)
+    })
 }
-
-
-
 
 return(
 
@@ -48,21 +51,29 @@ return(
             <div id="linha-vertical"></div>        
 
         <form onSubmit={handleSubmit(loginUser)}>
-            <p id='textLogin'>Login</p>
+            <p id='textLogin2'>Login</p>
 
             <label htmlFor="email" className='labelForm'>Email:</label>
+
+            <div className='juncaoInputErr'>
             <input type="email" id="email" { ...register('email')} className='inputForm'/>
                 <p className='mensageErr'>{errors.email?.message}</p>
+            </div>
 
             <label htmlFor="password" className='labelForm'>Senha:</label>
+
+            <div className='juncaoInputErr'>
             <input type="password" id="password" { ...register('password')} className='inputForm'/>
                 <p className='mensageErr'>{errors.password?.message}</p>
+            </div>
+
+
             <div id='centralizarBotao'>
-                <button id='botaoRegistrar'>Login</button>
+                <button id='botaoLogin'>Login</button>
             </div>    
         </form>
+        </div>
         <img src={logo} alt="" id='logoLogin' />
-    </div>
 </LoginStyle>
 
 )
