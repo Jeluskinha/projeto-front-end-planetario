@@ -24,8 +24,8 @@ export const RegisterStyle = styled.body`
     #inColun{
       display: flex;
       flex-direction: row;
-      margin-right: 9%;
-      margin-top: 2%;
+      justify-content: center;
+      align-items: center;
     }
 
     form{
@@ -33,8 +33,8 @@ export const RegisterStyle = styled.body`
       margin-left: 14%;
       display: flex;
       flex-direction: column;
-      max-height: 450px;
       font-family: 'geo';
+      max-height: 500px ;
     }
 
 
@@ -43,8 +43,6 @@ export const RegisterStyle = styled.body`
       font-size: 30px;
       min-width: 480px;
       max-width: 480px;
-      max-height: 313px;
-      margin-top: 14%;
       font-family: 'orbitron';
     }
 
@@ -61,7 +59,7 @@ export const RegisterStyle = styled.body`
       font-family: 'geo';
     }
 
-    .juncaoInputErr{
+    .junctionInputError{
       min-height: 60px;
     }
 
@@ -78,7 +76,7 @@ export const RegisterStyle = styled.body`
       margin-top: 1%;
     }
 
-    #botaoRegistrar{
+    #buttonRegister{
       background-color: white;
       color: black;
       width: 141px;
@@ -90,32 +88,87 @@ export const RegisterStyle = styled.body`
       font-family: 'orbitron';
     }
 
-    #linha-vertical{
+    #verticalLine{
       height: 480px;
       border-right: 4px solid white;
       border-radius: 7px;
     
     }
 
-    #textCadastro{
+    #textRegister2{
       display: flex;
       color: white;
       font-size: 30px;
       justify-content: center;
+      font-family: 'geo';
     }
 
-    #logoRegister{
+    #soonRegister{
       margin-top: 3%;
     }
 
-    #centralizarBotao{
+    #centerButton{
       max-width: 346px;
       display: flex;
       justify-content: center;
     }
 
     .option{
-      background-color: pink;
-      color: black;
+      background-color: black;
+      color: white;
       }
+
+  @media (max-width: 960px){
+
+  background: url(https://i.ibb.co/DVsLyx6/Wallpaper-da-lua-1lua.jpg);
+  background-repeat: no-repeat, repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  flex-direction: column;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+
+  #textRegister{
+    display: none;
+  }
+
+  #verticalLine{
+  display: none;
+  }
+
+  #soonRegister{
+      margin-top: 20%;
+    }
+
+  form{
+    max-width: 346px;
+    display: flex;
+    font-family: 'geo';
+    max-height: 100%;
+    margin-right: 14%;
+    }
+
+
+
+}
+
+@media (max-width: 400px){
+  #soonRegister{
+      margin-top: 20%;
+      width: 300px;
+    }
+
+
+}
+
+@media (max-height: 620px){
+  #soonRegister{
+    display: none;
+    }
+
+
+}
+
 `;
