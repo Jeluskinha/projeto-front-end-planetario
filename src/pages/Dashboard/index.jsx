@@ -1,18 +1,18 @@
-import { v4 as uuid } from 'uuid'
-import { useContext, useState } from 'react'
+// import { v4 as uuid } from 'uuid'
+import { useContext } from 'react' //useState
 
 import IconRocket from '../../assets/IconRocket'
 
-import IconArrowLeft from '../../assets/IconArrowLeft'
-import IconArrowRight from '../../assets/IconArrowRight'
+// import IconArrowLeft from '../../assets/IconArrowLeft'
+// import IconArrowRight from '../../assets/IconArrowRight'
 import IconMenuBurger from '../../assets/IconMenuBurger'
 
 import Header from '../../components/HeaderDash'
 import Planet from '../../components/Planet'
 import { DashboardContext } from '../../context/dashboard'
 import { DashboardContainer } from './styles'
-import { Link } from 'react-router-dom'
-import { Redirect, useNavigate } from "react-router-dom";
+// import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom"; //Redirect
 
 const Dashboard = () => {
     
@@ -20,12 +20,13 @@ const Dashboard = () => {
 
     const { 
         planetsList, 
-        planetOnFocus, setPlanetOnFocus, 
+        // planetOnFocus, setPlanetOnFocus, 
         isHeaderVisible, setIsHeaderVisible,
-        planetOnFocusDesktop, setPlanetOnFocusDesktop
+        // planetOnFocusDesktop, 
+        setPlanetOnFocusDesktop
     } = useContext(DashboardContext)
 
-    const planetInfo = planetsList[planetOnFocus]
+    // const planetInfo = planetsList[planetOnFocus]
 
     return (
         <>
