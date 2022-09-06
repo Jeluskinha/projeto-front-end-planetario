@@ -1,6 +1,7 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
+import { motion } from "framer-motion"
 
 import IconClose from '../../assets/IconClose'
 import IconCreatePost from '../../assets/IconCreatePost'
@@ -30,13 +31,29 @@ const Blog = () => {
     const navigate = useNavigate()
 
     function logout() {
-        localStorage.removeItem()
-        localStorage.removeItem()
-
+        localStorage.removeItem('@plantaryM3:token')
+        localStorage.removeItem('@plantaryM3:user_id')
+        localStorage.removeItem('@plantaryM3:nickname')
+       
         navigate('/login', { replace:true })
     }
 
+    useEffect(() => {
+        const token = localStorage.getItem('@plantaryM3:token')
+        !token && navigate('/login', { replace: true })
+    }, [navigate])
+
     return (
+
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ 
+            duration: 0.8,
+            delay: 0.5,
+            ease: [0, 0.71, 0.2, 1.01] }}
+        >
         <BlogContainer>
             <>
                 {
@@ -52,31 +69,56 @@ const Blog = () => {
 
                             <div className='header_div-extra'>
 
-                                <button onClick={() => navigate('/', { replace: true })}> <IconRocket/> </button>
-                                <button onClick={() => setIsProfileVisible(true)}> <IconProfile/> </button>
-                                <button onClick={() => logout()}> <IconLogout/> </button>
+                                <motion.button  
+                                    whileHover={{ scale: 1.2 }}
+                                    whileFocus={{ scale: 1.2 }} 
+                                    onClick={() => navigate('/', { replace: true })}> <IconRocket/> </motion.button>
+                                <motion.button 
+                                    whileHover={{ scale: 1.2 }}
+                                    whileFocus={{ scale: 1.2 }}
+                                    onClick={() => setIsProfileVisible(true)}> <IconProfile/> </motion.button>
+                                <motion.button 
+                                    whileHover={{ scale: 1.2 }} 
+                                    whileFocus={{ scale: 1.2 }}
+                                    onClick={() => logout()}> <IconLogout/> </motion.button>
 
                             </div>
                             
                         </HeaderContainer>
                     :
                         isHeaderVisible === false ? 
-
+                            
                             <HeaderContainer>
 
-                                <div className='header_div-logo'>
+                                <motion.div 
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ 
+                                    duration: 0.8,
+                                    delay: 0.2,
+                                    ease: [0, 0.71, 0.2, 1.01] }}
+                                className='header_div-logo'>
 
                                 <Logo/>
 
-                                </div>
+                                </motion.div>
 
                                 <div className='header_div-extra'>
 
-                                    <button className='button-menu' onClick={() => 
-                                        setIsHeaderVisible(true)
-                                        }> 
-                                        <IconMenuBurger/> 
-                                    </button>
+                                    <motion.button
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ 
+                                        duration: 0.8,
+                                        delay: 0.2,
+                                        ease: [0, 0.71, 0.2, 1.01] }}
+                                    whileHover={{ scale: 1.2 }}
+                                    whileFocus={{ scale: 1.2 }} 
+                                    className='button-menu' onClick={() => 
+                                        setIsHeaderVisible(true)}> <IconMenuBurger/> 
+                                    </motion.button>
 
                                 </div>
 
@@ -86,13 +128,56 @@ const Blog = () => {
 
                                 <div className='header_div'>
 
-                                    <button onClick={() => navigate('/', { replace: true })}> <IconRocket/> </button>
-                                    <button onClick={() => setIsProfileVisible(true)}> <IconProfile/> </button>
-                                    <button onClick={() => logout()}> <IconLogout/> </button>
+                                    <motion.button 
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ 
+                                        duration: 0.8,
+                                        delay: 0.2,
+                                        ease: [0, 0.71, 0.2, 1.01] }}
+                                    whileFocus={{ scale: 1.2 }}
+                                    whileHover={{ scale: 1.2 }}
+                                    onClick={() => navigate('/', { replace: true })}> <IconRocket/> </motion.button>
+
+                                    <motion.button 
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ 
+                                        duration: 0.8,
+                                        delay: 0.2,
+                                        ease: [0, 0.71, 0.2, 1.01] }}
+                                    whileFocus={{ scale: 1.2 }}
+                                    whileHover={{ scale: 1.2 }} 
+                                    onClick={() => setIsProfileVisible(true)}> <IconProfile/> </motion.button>
+
+                                    <motion.button 
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ 
+                                        duration: 0.8,
+                                        delay: 0.2,
+                                        ease: [0, 0.71, 0.2, 1.01] }}
+                                    whileFocus={{ scale: 1.2 }}
+                                    whileHover={{ scale: 1.2 }} 
+                                    onClick={() => logout()}> <IconLogout/> </motion.button>
 
                                 </div>
 
-                                <button className='btn-close' onClick={() => setIsHeaderVisible(false)}> <IconClose/> </button>
+                                <motion.button 
+                                whileHover={{ scale: 1.2 }}
+                                whileFocus={{ scale: 1.2 }} 
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ 
+                                    duration: 0.8,
+                                    delay: 0.2,
+                                    ease: [0, 0.71, 0.2, 1.01] }}
+                                className='btn-close' 
+                                onClick={() => setIsHeaderVisible(false)}> <IconClose/> </motion.button>
 
                             </HeaderContainer>      
                 }
@@ -101,13 +186,16 @@ const Blog = () => {
 
                 <div className='div-createPost'> 
 
-                    <p>Adicone uma nova postagem</p>
-                    <button className='btn-create' onClick={() => setIsCreateVisible(true)}> <IconCreatePost/> </button>
+                    <p>Adicione uma nova postagem</p>
+                    <motion.button 
+                    whileHover={{ scale: 1.2 }}
+                    className='btn-create' 
+                    onClick={() => setIsCreateVisible(true)}> <IconCreatePost/> </motion.button>
 
                 </div>
 
                 <ul>
-                    {
+                    {   
                         postsList.map(post => <Post key={uuid()} post={post}/>)
                     }
                 </ul>
@@ -123,6 +211,7 @@ const Blog = () => {
             { isProfileVisible === true && <ModalProfile/> }
 
         </BlogContainer>
+        </motion.div>
     )
 }
 

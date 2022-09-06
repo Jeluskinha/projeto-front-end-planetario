@@ -11,8 +11,15 @@ import Header from '../../components/HeaderDash'
 import Planet from '../../components/Planet'
 import { DashboardContext } from '../../context/dashboard'
 import { DashboardContainer } from './styles'
-// import { Link } from 'react-router-dom'
-import { useNavigate } from "react-router-dom"; //Redirect
+
+
+import { Link } from 'react-router-dom'
+import {  useNavigate } from "react-router-dom";
+
+import { Navigate } from 'react-router-dom'
+import Modal from '../../components/Modal'
+import ModalPlanet from '../../components/ModalPlanet'
+
 
 const Dashboard = () => {
     
@@ -22,8 +29,7 @@ const Dashboard = () => {
         planetsList, 
         // planetOnFocus, setPlanetOnFocus, 
         isHeaderVisible, setIsHeaderVisible,
-        // planetOnFocusDesktop, 
-        setPlanetOnFocusDesktop
+        planetOnFocusDesktop, setPlanetOnFocusDesktop, isOpenModal
     } = useContext(DashboardContext)
 
     // const planetInfo = planetsList[planetOnFocus]
@@ -63,6 +69,11 @@ const Dashboard = () => {
                     }       
                 </ul>                
             </main>
+            {isOpenModal && (
+                <Modal>
+                    <ModalPlanet/>
+                </Modal>
+            )}
         </DashboardContainer>
         </>
     )

@@ -9,18 +9,27 @@ export const DashboardProvider = ({ children }) => {
     // const [ planetOnFocus, setPlanetOnFocus ] = useState(0)
     const [ planetOnFocusDesktop, setPlanetOnFocusDesktop ] = useState({})
     const [ isHeaderVisible, setIsHeaderVisible ] = useState(true)
+    const [ isOpenModal, setIsOpenModal ] = useState(false)
+    const [ modalPlanet, setModalPlanet ] = useState({})
 
     useEffect(() => {
         Api.get('planets')
         .then(res => setPlanetList(res.data))
     }, []) 
 
+    const closeModal = (e) => {
+        e.preventDefault()
+        setIsOpenModal(!isOpenModal)
+    }
+
     return (
         <DashboardContext.Provider value={{ 
             planetsList, setPlanetList, 
             // planetOnFocus, setPlanetOnFocus,
             isHeaderVisible, setIsHeaderVisible,
-            planetOnFocusDesktop, setPlanetOnFocusDesktop
+            planetOnFocusDesktop, setPlanetOnFocusDesktop,
+            isOpenModal, setIsOpenModal, closeModal,
+            modalPlanet, setModalPlanet,
         }}>
             {children}
         </DashboardContext.Provider>

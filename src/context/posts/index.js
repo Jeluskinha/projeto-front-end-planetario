@@ -1,5 +1,6 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import Api from '../../services/api';
+import { BlogContext } from '../blog';
 
 export const PostsContext = createContext()
 
@@ -7,16 +8,19 @@ export const PostsProvider = ({ children }) => {
 
     const [postsList, setPostList]      = useState([])
     const [postOnFocus, setPostOnFocus] = useState({})
+    const [isChanged, setIsChanged]     = useState(false)
 
     const [isCreateVisible, setIsCreateVisible] = useState(false)
     const [isEditVisible, setIsEditVisible]     = useState(false)
     const [isDeleteVisible, setIsDeleteVisible] = useState(false)
 
+    const { token } = useContext(BlogContext)
+
     useEffect(() => {
-        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjE0MzYxMSwiZXhwIjoxNjYyMTQ3MjExLCJzdWIiOiJXYkRscHZtIn0.ignUlmLScLqjSPDk5Ed26ifLHExHJ49-INcBpt8di98`
+        Api.defaults.headers.authorization = `Bearer ${token}`
         Api.get('posts')
-        .then(res => setPostList(res.data))
-    }, [])
+        .then(res => setPostList(res.data.reverse()))
+    }, [token])
  
     return (
 
@@ -25,7 +29,8 @@ export const PostsProvider = ({ children }) => {
             postOnFocus, setPostOnFocus,
             isCreateVisible, setIsCreateVisible,
             isEditVisible, setIsEditVisible,
-            isDeleteVisible, setIsDeleteVisible
+            isDeleteVisible, setIsDeleteVisible,
+            isChanged, setIsChanged
         }}>
             {children}
         </PostsContext.Provider>

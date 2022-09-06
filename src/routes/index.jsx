@@ -1,4 +1,4 @@
-import {Routes, Route, Navigate} from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 import Blog from "../pages/Blog"
 import Dashboard from "../pages/Dashboard"
 import Register from "../pages/Register/index.jsx"
