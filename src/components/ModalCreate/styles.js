@@ -41,9 +41,13 @@ export const ModalContainer = styled.div`
 
                 text-align: end;
 
-                color: var(--Color-especial);
+                color: var(--Color-white);
                 font-size: 2.2rem;
                 font-weight: 500
+            }
+
+            button:hover {
+                color: var(--Color-especial);
             }
 
             .btn-close {

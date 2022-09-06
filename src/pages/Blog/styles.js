@@ -67,7 +67,8 @@ export const BlogContainer = styled.div`
                 outline: unset;
 
                 background-color: unset;
-            }
+            };
+
         };
 
         ul {
@@ -87,5 +88,5 @@ export const BlogContainer = styled.div`
         }
     }
 
-   
 `
+

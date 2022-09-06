@@ -96,7 +96,15 @@ export const ModalContainer = styled.div`
                 background-color: var(--Color-red);
             }
 
+            #button-cancel:hover {
+                background-color: #9d0208;
+            }
+
             #button-delete {
+                background-color: var(--Color-blue-2);
+            }
+
+            #button-delete:hover {
                 background-color: var(--Color-focus);
             }
         }
