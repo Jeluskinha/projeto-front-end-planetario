@@ -8,6 +8,7 @@ export const PostsProvider = ({ children }) => {
 
     const [postsList, setPostList]      = useState([])
     const [postOnFocus, setPostOnFocus] = useState({})
+    const [isChanged, setIsChanged]     = useState(false)
 
     const [isCreateVisible, setIsCreateVisible] = useState(false)
     const [isEditVisible, setIsEditVisible]     = useState(false)
@@ -19,7 +20,7 @@ export const PostsProvider = ({ children }) => {
         Api.defaults.headers.authorization = `Bearer ${token}`
         Api.get('posts')
         .then(res => setPostList(res.data.reverse()))
-    }, [isCreateVisible, isDeleteVisible, isEditVisible])
+    }, [token])
  
     return (
 
@@ -28,7 +29,8 @@ export const PostsProvider = ({ children }) => {
             postOnFocus, setPostOnFocus,
             isCreateVisible, setIsCreateVisible,
             isEditVisible, setIsEditVisible,
-            isDeleteVisible, setIsDeleteVisible
+            isDeleteVisible, setIsDeleteVisible,
+            isChanged, setIsChanged
         }}>
             {children}
         </PostsContext.Provider>

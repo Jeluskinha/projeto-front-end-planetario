@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 import { motion } from "framer-motion"
@@ -33,11 +33,18 @@ const Blog = () => {
     function logout() {
         localStorage.removeItem('@plantaryM3:token')
         localStorage.removeItem('@plantaryM3:user_id')
+        localStorage.removeItem('@plantaryM3:nickname')
        
         navigate('/login', { replace:true })
     }
 
+    useEffect(() => {
+        const token = localStorage.getItem('@plantaryM3:token')
+        !token && navigate('/login', { replace: true })
+    }, [navigate])
+
     return (
+
         <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -189,7 +196,7 @@ const Blog = () => {
 
                 <ul>
                     {   
-                        postsList.reverse().map(post => <Post key={uuid()} post={post}/>)
+                        postsList.map(post => <Post key={uuid()} post={post}/>)
                     }
                 </ul>
 

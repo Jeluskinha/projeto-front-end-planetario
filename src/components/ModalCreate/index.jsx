@@ -12,8 +12,10 @@ import { BlogContext } from '../../context/blog';
 
 const ModalCreate = () => {
     
-    const { setIsCreateVisible } = useContext(PostsContext)
+    const { setIsCreateVisible, setPostList } = useContext(PostsContext)
     const { token, userID } = useContext(BlogContext)
+
+    console.log(token)
 
     const schema = yup.object().shape({
         title: yup.string().required(),
@@ -23,13 +25,16 @@ const ModalCreate = () => {
         resolver: yupResolver(schema)
     })
 
-    function createPost(data) {
+    async function createPost(data) {
         Api.defaults.headers.authorization = `Bearer ${token}`
 
-        Api.post(`users/${userID}/posts`, data)
+        await Api.post(`users/${userID}/posts`, data)
         .then(res => console.log(res))
         .catch(err => console.log(err))
         .finally(setIsCreateVisible(false))
+
+        await Api.get('posts')
+        .then(res => setPostList(res.data.reverse()))
     }
 
     return (

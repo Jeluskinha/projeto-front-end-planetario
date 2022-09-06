@@ -12,7 +12,7 @@ import { BlogContext } from '../../context/blog';
 
 const ModalEdit = () => {
     
-    const { setIsEditVisible, postOnFocus } = useContext(PostsContext)
+    const { setIsEditVisible, postOnFocus, setPostList  } = useContext(PostsContext)
     const { token } = useContext(BlogContext)
 
     const [ titlePost, setTitlePost ] = useState('')
@@ -25,13 +25,16 @@ const ModalEdit = () => {
         resolver: yupResolver(schema)
     })
 
-    function changePost(data) {
+    async function changePost(data) {
         Api.defaults.headers.authorization = `Bearer ${token}`
 
-        Api.patch(`posts/${localStorage.getItem('@Post_ID')}`, data)
+        await Api.patch(`posts/${localStorage.getItem('@Post_ID')}`, data)
         .then(res => localStorage.removeItem('@Post_ID'))
         .catch(err => console.log(err))
         .finally(setIsEditVisible(false))
+
+        await Api.get('posts')
+        .then(res => setPostList(res.data.reverse()))
     }
 
     function inputValue() {
@@ -76,8 +79,8 @@ const ModalEdit = () => {
                         <input 
                             type='text' 
                             id='input_createPost' 
-                            value={postOnFocus.title || ''}
-                            onClick={(e) => console.log(e.target.value)}
+                            value={titlePost || ''}
+                            onChange={(e) => setTitlePost('')}
                             {...register('title', {required: true, maxLength: {value: 20, message: 'Número máximo de caracteres atingido'}})}
                         />
 

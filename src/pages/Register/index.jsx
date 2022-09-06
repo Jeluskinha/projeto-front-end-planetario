@@ -88,7 +88,7 @@ const Register = () => {
 
                     <label htmlFor="select" className='labelForm'>Selecione uma das opções:</label>
                     <select name="" {...register('select')} className='inputForm'>
-                        <option value="Entusiasta1" className='option'>Entusiasta</option>
+                        <option value="Entusiasta" className='option'>Entusiasta</option>
                         <option value="Aluno" className='option'>Aluno</option>
                         <option value="Professor" className='option'>Professor</option>
                     </select>

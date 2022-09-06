@@ -9,16 +9,19 @@ import { BlogContext } from '../../context/blog'
 
 const ModalDelete = () => {
 
-    const { setIsDeleteVisible } = useContext(PostsContext)
+    const { setIsDeleteVisible, setPostList } = useContext(PostsContext)
     const { token } = useContext(BlogContext)
 
-    function deletePost() {
+    async function deletePost() {
         Api.defaults.headers.authorization = `Bearer ${token}`
 
-        Api.delete(`posts/${localStorage.getItem('@Post_ID')}`)
+        await Api.delete(`posts/${localStorage.getItem('@Post_ID')}`)
         .then(res => localStorage.removeItem('@Post_ID'))
         .catch(err => console.log(err))
         .finally(setIsDeleteVisible(false))
+
+        await Api.get('posts')
+        .then(res => setPostList(res.data.reverse()))
     }
 
     return (
