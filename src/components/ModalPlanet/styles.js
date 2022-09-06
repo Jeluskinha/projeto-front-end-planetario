@@ -13,6 +13,7 @@ export const ModalContainer = styled.div`
     .planet-modal-box{
         display: flex;
         flex-direction: column;
+        justify-content: center;
         width: 90%;
         height: 90%;    
         font-family: 'Orbitron', sans-serif;   
@@ -42,20 +43,20 @@ export const ModalContainer = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-evenly;
         width: 100%;
-        height: 100%;
+        height: auto;
     }
-
+    
     .planet-modal-text{
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* max-width: 450px; */
         gap: 20px;
     }
 
     figure{
-        height: 40%;
+        height: 30%;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -73,12 +74,18 @@ export const ModalContainer = styled.div`
 
     p{
         text-align: center;
-        font-size: 20px;
-        padding: 5px;
+        font-size: 25px;
+        line-height: 30px;
+        padding: 0px;
         font-family: 'Orbitron', sans-serif;
     }
 
     @media (min-width: 768px) {
+
+        .planet-modal-box{
+            height: 30%;
+            max-width: 1200px;
+        }
        
        .planet-modal-data{
             flex-direction: row;
@@ -89,8 +96,7 @@ export const ModalContainer = styled.div`
        .planet-modal-text{
             flex-direction: column;
             gap: 30px;
-            width: 50%;
-            max-width: 600px;
+            width: 80%;
        }
 
        figure{
