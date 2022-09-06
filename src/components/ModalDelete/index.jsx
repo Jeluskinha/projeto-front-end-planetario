@@ -5,18 +5,23 @@ import { ModalContainer } from './styles'
 import IconDelete from '../../assets/IconDelete'
 import Api from '../../services/api'
 import { AnimatePresence, motion } from 'framer-motion'
+import { BlogContext } from '../../context/blog'
 
 const ModalDelete = () => {
 
-    const { setIsDeleteVisible } = useContext(PostsContext)
+    const { setIsDeleteVisible, setPostList } = useContext(PostsContext)
+    const { token } = useContext(BlogContext)
 
-    function deletePost() {
-        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjQwMDc5NCwiZXhwIjoxNjYyNDA0Mzk0LCJzdWIiOiJ6eUJDNFVNIn0.F-d2M6dKDmfa6r4OhYUG8pkfdQ4q4Z-SvxcA7q1NpRY`
+    async function deletePost() {
+        Api.defaults.headers.authorization = `Bearer ${token}`
 
-        Api.delete(`posts/${localStorage.getItem('@Post_ID')}`)
-        .then(res => console.log(res))
+        await Api.delete(`posts/${localStorage.getItem('@Post_ID')}`)
+        .then(res => localStorage.removeItem('@Post_ID'))
         .catch(err => console.log(err))
         .finally(setIsDeleteVisible(false))
+
+        await Api.get('posts')
+        .then(res => setPostList(res.data.reverse()))
     }
 
     return (
@@ -47,7 +52,7 @@ const ModalDelete = () => {
                     <div className='delete_btns'>
 
                         <button id='button-cancel' onClick={() => setIsDeleteVisible(false)}> Cancelar </button>
-                        <button id='button-delete' onClick={() => deletePost}> Excluir </button>
+                        <button id='button-delete' onClick={() => deletePost()}> Excluir </button>
 
                     </div>
 

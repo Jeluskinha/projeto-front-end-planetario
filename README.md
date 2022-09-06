@@ -1,70 +1,282 @@
-# Getting Started with Create React App
+# EndPoints Api
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+base_url: [https://planeteryproject.herokuapp.com](https://planeteryproject.herokuapp.com/)
 
-## Available Scripts
+* All routes need AUTHENTICATION (TOKEN) , except for login, registration and planets
 
-In the project directory, you can run:
+## PLANETS 
 
-### `yarn start`
+### GET - ALL PLANETS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+base_url/planets
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```json
+#response
+[
+	{
+		"id": "0",
+		"name": "Sol",
+		"link": "https://solarsystem.nasa.gov/solar-system/sun/overview/",
+		"image": "./planets/sol.gif",
+		"resume": "O sol é a estrela central do Sistema Solar, ou seja, todos os outros corpos do nosso sistema giram ao seu redor. Sua temperatura é variada, podendo atingir até 5.505 graus Celsius na superfície e extraordinários 16 milhões de graus Celsius no núcleo. Uma viagem da Terra com destino ao Sol, em uma espaçonave, levaria cerca de 124 dias."
+	},
+	{
+		"id": "1",
+		"name": "Mercúrio",
+		"link": "https://solarsystem.nasa.gov/planets/mercury/overview/",
+		"image": "./planets/mercurio-unscreen.gif",
+		"resume": "Mercúrio é o mais interno planeta do Sistema Solar. A sua órbita tem a maior excentricidade e o seu eixo apresenta a menor inclinação em relação ao plano da órbita dentre todos os outros planetas. A sua distância do sol é de 58.000.000 km e seu período de rotação é de aproximadamente 58 dias, sendo que o período orbital dura 88 dias. Além disso, sua gravidade é de 3,7m/s² e possui uma temperatura média de 166,85 ºC."
+	},
+]
+```
+### GET - SPECIFIC PLANET
 
-### `yarn test`
+base_url/planets
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```json
+#response
+{
+		"id": "0",
+		"name": "Sol",
+		"link": "https://solarsystem.nasa.gov/solar-system/sun/overview/",
+		"image": "./planets/sol.gif",
+		"resume": "O sol é a estrela central do Sistema Solar, ou seja, todos os outros corpos do nosso sistema giram ao seu redor. Sua temperatura é variada, podendo atingir até 5.505 graus Celsius na superfície e extraordinários 16 milhões de graus Celsius no núcleo. Uma viagem da Terra com destino ao Sol, em uma espaçonave, levaria cerca de 124 dias."
+}
+```
 
-### `yarn build`
+## USERS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### POST - REGISTER
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+base_url/USERS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```json
+#body
+{
+	"nickname": "Jonas",
+	"email": "jonas@hotmail.com",
+	"password": "123456",
+	"type": "aluno"
+}
+```
 
-### `yarn eject`
+```json 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#response{
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+	"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjEzOTMwNCwiZXhwIjoxNjYyMTQyOTA0LCJzdWIiOiJpV3NiaUE5In0.2RPR67m06gKUu8FnRsjuIDRPIeNKulROPXtwJa7ukq4",
+	"user": {
+		"email": "jonas@hotmail.com",
+		"nickname": "Jonas",
+		"type": "aluno",
+		"id": "iWsbiA9"	
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### POST - LOGIN 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+base_url/login
 
-## Learn More
+```json
+#body
+{
+	"email": "jonas@hotmail.com",
+	"password": "123456"
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```json
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#response
+{
+	"accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvbmFzQGhvdG1haWwuY29tIiwiaWF0IjoxNjYyMTM5MjczLCJleHAiOjE2NjIxNDI4NzMsInN1YiI6IlZkX05UMDUifQ.Fv_4pXC-I69bwS9CBfkfFEOIPQa53jE_nggaa3qVLmY",
+	"user": {
+		"email": "jonas@hotmail.com",
+		"nickname": "Jonas",
+		"type": "aluno",
+		"id": "iWsbiA9"
+	}
+}
+```
 
-### Code Splitting
+### GET - ALL USERS
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+base_url/users
 
-### Analyzing the Bundle Size
+```json
+#response
+[
+	{
+		"email": "jonas@hotmail.com",
+		"password": "$2a$10$8iYzcwlOlFVl.vwdBkhUb.bA5Ic7RGq9fa0hnXdMWWJpUQLLvp61W",
+		"nickname": "Jonas",
+		"type": "professor",
+		"id": "Vd_NT05"
+	},
+	{
+		"email": "fernando@hotmail.com",
+		"password": "$2a$10$WEpD6M12Lns2lgT8C8S9JuvIuZb7eTZeLDAOzA6j4a2Qi0v4XtZtC",
+		"nickname": "Fernando",
+		"type": "aluno",
+		"id": "Yzkf3LI"
+	}
+]
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### GET - SPECIFIC USER
 
-### Making a Progressive Web App
+base_url/users/{user_id}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```json
+#response
+{
+	"email": "messi@hotmail.com",
+	"password": "$2a$10$TeGesTsKNeKAqugJKuUlyOe16y6XUfdu145RqL4gxnudQ1nhyQKo2",
+	"nickname": "Messi",
+	"type": "professor",
+	"id": "och1FwG"
+}
+```
 
-### Advanced Configuration
+### PATCH - EDIT USER 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+base_url/users/{user_id}
 
-### Deployment
+```json
+#body
+{
+	"nickname": "new nickname",
+	"type": "professor"
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```json
+#response
+{
+	"email": "messi@hotmail.com",
+	"password": "$2a$10$TeGesTsKNeKAqugJKuUlyOe16y6XUfdu145RqL4gxnudQ1nhyQKo2",
+	"nickname": "new nickname",
+	"type": "professor",
+	"id": "och1FwG"
+}
+```
 
-### `yarn build` fails to minify
+## POSTS
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### GET - USER POSTS
+
+base_url/users/{user_id}/posts
+
+```json
+#response
+[
+	{
+		"title": "New Post",
+		"Resume": "Testando",
+		"userId": "och1FwG",
+		"id": "GJX_-CE"
+	}
+]
+```
+
+### GET - ALL POSTS
+
+base_url/posts
+
+```json
+#response
+[
+
+	{
+		"id": "GJX_-CE",
+		"user": {
+			"user_id": "och1FwG",
+			"user_nickName": "new nickname",
+			"user_image": "https://pbs.twimg.com/media/EXNwfE_WoAMarG5.jpg",
+			"user_type": "professor"
+		},
+		"tittle": "title",
+		"resume": "resume"
+	},
+    {
+		"id": "efwfe-E",
+		"user": {
+			"user_id": "45jywG",
+			"user_nickName": "nickname",
+			"user_image": "https://pbs.twimg.com/media/EXNwfE_WoAMarG5.jpg",
+			"user_type": "aluno"
+		},
+		"tittle": "title 2",
+		"resume": "resume 2"
+	}
+]
+```
+
+### GET - ESPECIFIC POST
+
+base_url/posts/{post_id}
+
+```json
+#response
+{
+	"id": "GJX_-CE",
+	"user": {
+		"user_id": "och1FwG",
+		"user_nickName": "Nickname",
+		"user_image": "https://pbs.twimg.com/media/EXNwfE_WoAMarG5.jpg",
+		"user_type": "aluno"
+	},
+	"tittle": "Title",
+	"resume": "Resume"
+}
+```
+### POST - CREATE POST
+
+base_url/users/{user_id}/posts
+
+```json
+#body
+{
+	"title": "New Post",
+	"Resume": "Resume"
+}
+```
+
+```json
+#response
+{
+	"title": "New Post",
+	"Resume": "Resume",
+	"userId": "och1FwG",
+	"id": "GJX_-CE"
+}
+```
+### PATCH - EDIT POST
+
+base_url/posts/{post_id}
+
+```json
+#body
+{
+	"title": "changed",
+	"Resume": "changed"
+}
+```
+```json
+#response
+{
+	"title": "changed",
+	"Resume": "changed",
+	"userId": "och1FwG",
+	"id": "zTqxB07"
+}
+```
+
+### DELETE - DELETE POST
+
+base_url/posts/{post_id}
+
+```json
+#response
+{}
+```

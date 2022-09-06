@@ -18,28 +18,28 @@ export const PlanetContainer = styled.li`
 
         //animation: Terra 5s linear infinite;
         &.Mercúrio {
-            animation-duration: 3s;
-        }
-        &.Vênus {
             animation-duration: 5s;
         }
-        &.Terra {
+        &.Vênus {
             animation-duration: 8s;
         }
-        &.Marte {
+        &.Terra {
             animation-duration: 12s;
         }
-        &.Júpiter {
+        &.Marte {
             animation-duration: 15s;
         }
+        &.Júpiter {
+            animation-duration: 18s;
+        }
         &.Saturno {
-            animation-duration: 20s;
+            animation-duration: 21s;
         }
         &.Urano {
-            animation-duration: 26s;
+            animation-duration: 24s;
         }
         &.Netuno {
-            animation-duration: 30s;
+            animation-duration: 38s;
         }
             img {
             width: 100%;
