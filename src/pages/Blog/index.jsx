@@ -31,9 +31,9 @@ const Blog = () => {
     const navigate = useNavigate()
 
     function logout() {
-        localStorage.removeItem()
-        localStorage.removeItem()
-
+        localStorage.removeItem('@plantaryM3:token')
+        localStorage.removeItem('@plantaryM3:user_id')
+       
         navigate('/login', { replace:true })
     }
 
@@ -188,7 +188,7 @@ const Blog = () => {
                 </div>
 
                 <ul>
-                    {
+                    {   
                         postsList.reverse().map(post => <Post key={uuid()} post={post}/>)
                     }
                 </ul>

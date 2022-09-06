@@ -37,7 +37,7 @@ const Register = () => {
 
     function registerUser(data) {
 
-            Api.post('USERS', data)
+            Api.post('users', data)
             .then( () => {
                 navigate('/login', {replace: true}) 
             })
@@ -88,9 +88,9 @@ const Register = () => {
 
                     <label htmlFor="select" className='labelForm'>Selecione uma das opções:</label>
                     <select name="" {...register('select')} className='inputForm'>
-                        <option value="1" className='option'>Entusiasta</option>
-                        <option value="2" className='option'>Aluno</option>
-                        <option value="3" className='option'>Professor</option>
+                        <option value="Entusiasta1" className='option'>Entusiasta</option>
+                        <option value="Aluno" className='option'>Aluno</option>
+                        <option value="Professor" className='option'>Professor</option>
                     </select>
                     <div id='centralizarBotao'>
                     <button id='botaoRegistrar'>Registrar</button>
