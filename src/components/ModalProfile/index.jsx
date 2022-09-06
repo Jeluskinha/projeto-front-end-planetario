@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from 'react'
 
 import Api from '../../services/api'
 import { BlogContext } from '../../context/blog'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const ModalProfile = () => {
 
@@ -27,47 +28,59 @@ const ModalProfile = () => {
 
     return (
 
-        <ModalContainer className='modal_container' onClick={(e) => {
-            e.target.className.includes('modal_container') && setIsProfileVisible(false)
-        }}>
+        <AnimatePresence>
+            <ModalContainer className='modal_container' onClick={(e) => {
+                e.target.className.includes('modal_container') && setIsProfileVisible(false)
+            }}>
 
-            <div className='modal-profile'>
+                <motion.div 
+                key="modal"
+                initial={{ opacity: 0, scale: 0.5}}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ 
+                    duration: 0.8,
+                    delay: 0.1,
+                    ease: [0, 0.71, 0.2, 1.01] 
+                }}
+                className='modal-profile'>
 
-            <h3> Teste </h3>
+                    <h3> Teste </h3>
 
-            <figure className='profile_picture'>
-                <img src={user.image} alt='Foto de perfil' />
-            </figure>
+                    <figure className='profile_picture'>
+                        <img src={user.image} alt='Foto de perfil' />
+                    </figure>
 
-            <section>
+                    <section>
 
-                <div className='profile_info'> 
+                        <div className='profile_info'> 
 
-                    <div>
+                            <div>
 
-                        <figure> <IconSchool/> </figure>
+                                <figure> <IconSchool/> </figure>
 
-                        <span>entusiasta</span>
+                                <span>entusiasta</span>
 
-                    </div>
+                            </div>
 
-                    <div>
+                            <div>
 
-                        <figure> <IconEmail/> </figure>
+                                <figure> <IconEmail/> </figure>
 
-                        <span>email.com</span>
+                                <span>email.com</span>
 
-                    </div>
-                
-                </div>
+                            </div>
+                        
+                        </div>
 
-                 <button> <IconConfig/> </button>
+                        <motion.button whileHover={{ scale: 1.2 }}> <IconConfig/> </motion.button>
 
-            </section>
+                    </section>
 
-            </div>
+                </motion.div>
 
-        </ModalContainer>
+            </ModalContainer>
+        </AnimatePresence>
     )
 }
 

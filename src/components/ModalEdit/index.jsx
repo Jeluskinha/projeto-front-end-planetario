@@ -7,6 +7,7 @@ import { PostsContext } from '../../context/posts'
 import Api from '../../services/api';
 import { ModalContainer } from './styles'
 import IconClose from '../../assets/IconClose'
+import { AnimatePresence, motion } from 'framer-motion';
 
 const ModalEdit = () => {
 
@@ -31,44 +32,61 @@ const ModalEdit = () => {
     
     return (
 
-        <ModalContainer className='modal_container' onClick={(e) => {
-            e.target.className.includes('modal_container') && setIsEditVisible(false)
-        }}>
+        <AnimatePresence>
+            <ModalContainer className='modal_container' onClick={(e) => {
+                e.target.className.includes('modal_container') && setIsEditVisible(false)
+            }}>
 
-            <form className='modal_edit' onSubmit={handleSubmit(changePost)}>
+                <motion.form 
+                key="modal"
+                initial={{ opacity: 0, scale: 0.5}}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ 
+                    duration: 0.8,
+                    delay: 0.1,
+                    ease: [0, 0.71, 0.2, 1.01] 
+                }}
+                className='modal_edit' 
+                onSubmit={handleSubmit(changePost)}>
 
-                <button className='btn-close' onClick={() => setIsEditVisible(false)}>
-                    <IconClose/>
-                </button> 
+                    <motion.button 
+                    whileHover={{ scale: 1.2 }}
+                    whileFocus={{ scale: 1.2 }} 
+                    className='btn-close' 
+                    onClick={() => setIsEditVisible(false)}>
+                        <IconClose/>
+                    </motion.button> 
 
-                <div className='container-input'>
+                    <div className='container-input'>
 
-                    <label htmlFor='input_createPost'> Título </label>
-                    <input 
-                        type='text' 
-                        id='input_createPost' 
-                        value={postOnFocus.title}
-                        {...register('title', {required: true, maxLength: {value: 20, message: 'Número máximo de caracteres atingido'}})}
-                    />
+                        <label htmlFor='input_createPost'> Título </label>
+                        <input 
+                            type='text' 
+                            id='input_createPost' 
+                            value={postOnFocus.title}
+                            {...register('title', {required: true, maxLength: {value: 20, message: 'Número máximo de caracteres atingido'}})}
+                        />
 
-                </div>
+                    </div>
 
-                <div className='container-textarea'>
+                    <div className='container-textarea'>
 
-                    <label htmlFor='create_post'> Publicação </label>
-                    <textarea 
-                        id='create_post' 
-                        value={postOnFocus.resume}
-                        {...register('post', {required: true})}
-                    ></textarea>
+                        <label htmlFor='create_post'> Publicação </label>
+                        <textarea 
+                            id='create_post' 
+                            value={postOnFocus.resume}
+                            {...register('post', {required: true})}
+                        ></textarea>
 
-                </div>
+                    </div>
 
-                <button type='submit'> Alterar </button>
+                    <button type='submit'> Alterar </button>
 
-            </form>
+                </motion.form>
 
-        </ModalContainer>
+            </ModalContainer>
+        </AnimatePresence>
     )
 }
 
