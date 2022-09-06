@@ -69,9 +69,6 @@ export const DashboardContainer = styled.div`
             align-items: center;
             flex-direction: row;
             justify-content: space-between;
-
-        
-            overflow: auto;
             
             list-style: none;
             position: relative;
