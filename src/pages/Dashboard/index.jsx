@@ -35,7 +35,7 @@ const Dashboard = () => {
                     {isHeaderVisible ? '': 
                     <Header>        
                         <h3> Faça parte da nossa Comunidade </h3>
-                        <span onClick={() => navigate('/register')}><IconRocket/></span>
+                        <span onClick={() => navigate('/login')}><IconRocket/></span>
                         <span onClick={()=> setIsHeaderVisible(!isHeaderVisible)}> fechar</span>
                     </Header>}
                     {isHeaderVisible && <button onClick={() => setIsHeaderVisible(!isHeaderVisible)}><IconMenuBurger/></button>}
