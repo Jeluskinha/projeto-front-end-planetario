@@ -5,7 +5,7 @@ const Header = ({ children }) => {
   return (
     <HeaderContainer>
       <div className="header_div-logo">
-        <Logo />
+        <Logo/>
       </div>
       <div className="header_div-extra">{children}</div>
     </HeaderContainer>

@@ -11,12 +11,12 @@ import Header from '../../components/HeaderDash'
 import Planet from '../../components/Planet'
 import { DashboardContext } from '../../context/dashboard'
 import { DashboardContainer } from './styles'
-import { Navigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { Redirect, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
-
-    const [count, setCount] = useState(-50)
-
+    
+    const navigate = useNavigate()
 
     const { 
         planetsList, 
@@ -27,20 +27,15 @@ const Dashboard = () => {
 
     const planetInfo = planetsList[planetOnFocus]
 
-    function handleScroll(e){
-        console.log(window.scrollY)
-        setCount(count+10)
-    }
-
     return (
         <>
-        <DashboardContainer count={count}>
+        <DashboardContainer>
             <main>
                 <aside id='header'>
                     {isHeaderVisible ? '': 
                     <Header>        
                         <h3> Faça parte da nossa Comunidade </h3>
-                        <IconRocket onClick={() =>{<Navigate to='/'/>}}/>
+                        <span onClick={() => navigate('/register')}><IconRocket/></span>
                         <span onClick={()=> setIsHeaderVisible(!isHeaderVisible)}> fechar</span>
                     </Header>}
                     {isHeaderVisible && <button onClick={() => setIsHeaderVisible(!isHeaderVisible)}><IconMenuBurger/></button>}
@@ -54,7 +49,7 @@ const Dashboard = () => {
                     </figure>
                 </div>
 
-                <ul onScroll={(handleScroll)}>
+                <ul>
                     {
                     planetsList.map(planet => 
                     planet.id > 0 &&
