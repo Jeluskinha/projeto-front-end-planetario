@@ -42,7 +42,7 @@ const Register = () => {
                 navigate('/login', {replace: true}) 
             })
             .catch((error) => {
-                console.log(error)
+                alert('Email já cadastrado')
             })
     }
 
@@ -59,13 +59,13 @@ const Register = () => {
                     <p className='textLoginECadastro'>  Faça seu login e divirta-se </p>
                     <p className='textLoginECadastro'>  na imensidão da nossa galáxia!</p>
                 </div>
-                <div id="linha-vertical"></div>
+                <div id="verticalLine"></div>
                 <form onSubmit={handleSubmit(registerUser)}>
 
-                    <p id='textCadastro'>Cadastro</p>
+                    <p id='textRegister2'>Cadastro</p>
 
                     <label htmlFor="nickname" className='labelForm'>Apelido:</label>
-                    <div className='juncaoInputErr'>
+                    <div className='junctionInputError'>
                     <input type="text" id="nickname" {...register('nickname')} className='inputForm' />
                     <p className='mensageErr'>{errors.nickname?.message}</p>
                     </div>
@@ -73,14 +73,14 @@ const Register = () => {
 
 
                     <label htmlFor="email" className='labelForm'>Email:</label>
-                    <div className='juncaoInputErr'>
+                    <div className='junctionInputError'>
                     <input type="email" id="email" {...register('email')} className='inputForm' />
                     <p className='mensageErr'>{errors.email?.message}</p>
                     </div>
 
 
                     <label htmlFor="password" className='labelForm'>Senha:</label>
-                    <div className='juncaoInputErr'>
+                    <div className='junctionInputError'>
                     <input type="password" id="password" {...register('password')} className='inputForm' />
                     <p className='mensageErr'>{errors.password?.message}</p>
                     </div>
@@ -92,12 +92,12 @@ const Register = () => {
                         <option value="2" className='option'>Aluno</option>
                         <option value="3" className='option'>Professor</option>
                     </select>
-                    <div id='centralizarBotao'>
-                    <button id='botaoRegistrar'>Registrar</button>
+                    <div id='centerButton'>
+                    <button id='buttonRegister'>Registrar</button>
                     </div>
                 </form>
             </div>
-            <img src={logo} alt="" id='logoRegister' />
+            <img src={logo} alt="" id='soonRegister' />
         </RegisterStyle>
 
     )
