@@ -7,9 +7,12 @@ export const BlogProvider = ({ children }) => {
     const [ isHeaderVisible, setIsHeaderVisible ]   = useState(false)
     const [ isProfileVisible, setIsProfileVisible ] = useState(false)
 
+    const token = localStorage.getItem('@plantaryM3:token')
+    const userID = localStorage.getItem('@plantaryM3:user_id')
+
     return (
 
-        <BlogContext.Provider value={{ isHeaderVisible, setIsHeaderVisible, isProfileVisible, setIsProfileVisible}}>
+        <BlogContext.Provider value={{ token, userID, isHeaderVisible, setIsHeaderVisible, isProfileVisible, setIsProfileVisible}}>
             {children}
         </BlogContext.Provider>
     );

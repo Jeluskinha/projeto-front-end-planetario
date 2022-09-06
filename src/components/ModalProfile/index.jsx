@@ -12,19 +12,17 @@ import { AnimatePresence, motion } from 'framer-motion'
 const ModalProfile = () => {
 
     const [ user, setUser ] = useState({})
+    const { token, userID } = useContext(BlogContext)
     const { setIsProfileVisible } = useContext(BlogContext)
-
+    
     useEffect(() => {
-        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjQwMDc5NCwiZXhwIjoxNjYyNDA0Mzk0LCJzdWIiOiJ6eUJDNFVNIn0.F-d2M6dKDmfa6r4OhYUG8pkfdQ4q4Z-SvxcA7q1NpRY`
+        Api.defaults.headers.authorization = `Bearer ${token}`
 
-        Api.get(`users/zyBC4UM`)
-        .then(res => {
-            console.log(res)
-            setUser(res)
-        })
+        Api.get(`users/${userID}`)
+        .then(res => setUser(res.data))
         .catch((err) => console.log(err))
         
-    }, []) 
+    }, [token, userID]) 
 
     return (
 
@@ -45,10 +43,10 @@ const ModalProfile = () => {
                 }}
                 className='modal-profile'>
 
-                    <h3> Teste </h3>
+                    <h3> {user.nickname} </h3>
 
                     <figure className='profile_picture'>
-                        <img src={user.image} alt='Foto de perfil' />
+                        {/* <img src={user.image} alt='Foto de perfil' /> */}
                     </figure>
 
                     <section>
@@ -59,7 +57,7 @@ const ModalProfile = () => {
 
                                 <figure> <IconSchool/> </figure>
 
-                                <span>entusiasta</span>
+                                <span> {user.select} </span>
 
                             </div>
 
@@ -67,7 +65,7 @@ const ModalProfile = () => {
 
                                 <figure> <IconEmail/> </figure>
 
-                                <span>email.com</span>
+                                <span> {user.email} </span>
 
                             </div>
                         
