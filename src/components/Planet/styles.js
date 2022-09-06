@@ -49,7 +49,7 @@ export const PlanetContainer = styled.li`
     @keyframes planetAnimation {
         0%{
             left: -15%;
-            bottom: 0;
+            bottom: -15%;
         }
         25%{
             left: 15%;
