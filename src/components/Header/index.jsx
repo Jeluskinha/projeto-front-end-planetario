@@ -2,6 +2,7 @@ import Logo from "../../assets/Logo";
 import { HeaderContainer } from "./styles";
 
 const Header = ({ children }) => {
+
   return (
     <HeaderContainer>
       <div className="header_div-logo">
@@ -11,5 +12,6 @@ const Header = ({ children }) => {
     </HeaderContainer>
   );
 };
+
 export default Header
 

@@ -6,7 +6,7 @@ export const DashboardContext = createContext();
 export const DashboardProvider = ({ children }) => {
     
     const [ planetsList, setPlanetList ] = useState([])
-    const [ planetOnFocus, setPlanetOnFocus ] = useState(0)
+    // const [ planetOnFocus, setPlanetOnFocus ] = useState(0)
     const [ planetOnFocusDesktop, setPlanetOnFocusDesktop ] = useState({})
     const [ isHeaderVisible, setIsHeaderVisible ] = useState(true)
     const [ isOpenModal, setIsOpenModal ] = useState(false)
@@ -25,7 +25,7 @@ export const DashboardProvider = ({ children }) => {
     return (
         <DashboardContext.Provider value={{ 
             planetsList, setPlanetList, 
-            planetOnFocus, setPlanetOnFocus,
+            // planetOnFocus, setPlanetOnFocus,
             isHeaderVisible, setIsHeaderVisible,
             planetOnFocusDesktop, setPlanetOnFocusDesktop,
             isOpenModal, setIsOpenModal, closeModal,
