@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
       --Color-error: rgba(253, 80, 80, 1);
       --Color-focus: rgba(53, 135, 230, 1);
       --Color-especial: rgba(82, 0, 255, 1);
-
+      
       font-size: 60%;
   }
 
