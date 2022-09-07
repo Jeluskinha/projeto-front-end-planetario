@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 const schema = yup.object({
-    nickname: yup.string().required('O seu apelido é obrigatório'),
+    nickName: yup.string().required('O seu apelido é obrigatório'),
 
     email: yup.string().email('Deve ser um email').required('O seu email é obrigatório'),
 
@@ -22,8 +22,6 @@ const schema = yup.object({
             .matches(/.{8,}/, "deve conter ao menos 8 dígitos"),
 
     select: yup.string().required('Você deve escolher uma opção')
-
-
 })
 
 
@@ -36,7 +34,7 @@ const Register = () => {
 
 
     function registerUser(data) {
-
+        console.log(data)
             Api.post('users', data)
             .then( () => {
                 navigate('/login', {replace: true}) 
@@ -64,10 +62,10 @@ const Register = () => {
 
                     <p id='textRegister2'>Cadastro</p>
 
-                    <label htmlFor="nickname" className='labelForm'>Apelido:</label>
+                    <label htmlFor="nickName" className='labelForm'>Apelido:</label>
                     <div className='junctionInputError'>
-                    <input type="text" id="nickname" {...register('nickname')} className='inputForm' />
-                    <p className='mensageErr'>{errors.nickname?.message}</p>
+                    <input type="text" id="nickName" {...register('nickName')} className='inputForm' />
+                    <p className='mensageErr'>{errors.nickName?.message}</p>
                     </div>
 
 

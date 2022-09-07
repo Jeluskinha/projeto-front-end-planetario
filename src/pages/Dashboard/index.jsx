@@ -20,6 +20,8 @@ import { Navigate } from 'react-router-dom'
 import Modal from '../../components/Modal'
 import ModalPlanet from '../../components/ModalPlanet'
 import Api from '../../services/api'
+import {AiOutlineArrowUp} from 'react-icons/ai'
+
 
 
 const Dashboard = () => {
@@ -46,7 +48,7 @@ const Dashboard = () => {
                     <Header>   
                         {nameUser === null? <h3> Faça parte da nossa Comunidade</h3> : <h3>{nameUser}</h3>}     
                         <span onClick={() => nameUser === null? navigate('/login') : navigate('/blog')}><IconRocket/></span>
-                        <span onClick={()=> setIsHeaderVisible(!isHeaderVisible)}> fechar</span>
+                        <span onClick={()=> setIsHeaderVisible(!isHeaderVisible)}><AiOutlineArrowUp/></span>
                     </Header>}
                     {isHeaderVisible && <button onClick={() => setIsHeaderVisible(!isHeaderVisible)}><IconMenuBurger/></button>}
                 </aside>
