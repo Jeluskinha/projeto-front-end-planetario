@@ -1,11 +1,9 @@
 // import { v4 as uuid } from 'uuid'
-import { useContext, useEffect } from 'react' //useState
+import { useContext } from 'react' //useState
 import { motion } from 'framer-motion'
 
 import IconRocket from '../../assets/IconRocket'
 
-// import IconArrowLeft from '../../assets/IconArrowLeft'
-// import IconArrowRight from '../../assets/IconArrowRight'
 import IconMenuBurger from '../../assets/IconMenuBurger'
 
 import Header from '../../components/HeaderDash'
@@ -13,26 +11,22 @@ import Planet from '../../components/Planet'
 import { DashboardContext } from '../../context/dashboard'
 import { DashboardContainer } from './styles'
 
-
-import { Link } from 'react-router-dom'
 import {  useNavigate } from "react-router-dom";
 
-import { Navigate } from 'react-router-dom'
 import Modal from '../../components/Modal'
 import ModalPlanet from '../../components/ModalPlanet'
-import Api from '../../services/api'
 import {AiOutlineArrowUp} from 'react-icons/ai'
-import Logo from '../../assets/Logo'
 
 
 
 const Dashboard = () => {
     
+    const easterEgg = localStorage.getItem('@plantaryM3:nickname')
+    console.log(easterEgg)
+
     const navigate = useNavigate()
 
- 
     const { 
-        userIsLog,//aqui
         planetsList, 
         isHeaderVisible, setIsHeaderVisible,
         setPlanetOnFocusDesktop, isOpenModal
@@ -102,17 +96,24 @@ const Dashboard = () => {
                 </div>
 
                 <ul>
-                    {
+                {easterEgg  === 'Jeluskinha' ?    
                     planetsList.map(planet => 
                     planet.id > 0 &&
                     <Planet 
-                    
                         key={planet.id} 
                         planet={planet} 
-                        onClick={() => setPlanetOnFocusDesktop(planet)
-                        }
-                    />) 
-                    }       
+                        onClick={() => setPlanetOnFocusDesktop(planet)}
+                    />)
+                    :   
+                    planetsList.map(planet => 
+                        planet.id > 0 &&
+                        <Planet 
+                            key={planet.id} 
+                            planet={planet} 
+                            onClick={() => setPlanetOnFocusDesktop(planet)}
+                            easterEgg={easterEgg}
+                    />)
+                }    
                 </ul>                
             </main>
             {isOpenModal && (

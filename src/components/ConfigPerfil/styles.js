@@ -1,12 +1,21 @@
 import styled from "styled-components";
 
 const DropConfig = styled.div`
-  position: absolute;
-  top: 0;
-  right: 50%;
-  height: 100px;
-  width: 100px;
+  display: none;
+  position: fixed;
+  background-color: green;
+  width: 90%;
+  min-width: 288px;
+  max-width: 310px;
+  height: 30%;
+  min-height: 180px;
+  max-height: 212px;
+  border-radius: 8px;
+  border-radius: 5%;
+  z-index: 200;
+  color: black;
   h2{
+    color: black;
     height: 33%;
     width: 100%;
     padding: 0 10%;
