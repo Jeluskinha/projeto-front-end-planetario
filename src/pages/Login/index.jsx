@@ -6,7 +6,6 @@ import { LoginStyle } from './style'
 import logo from '../../assets/LogoPlanetario.svg'
 import Api from '../../services/api'
 
-//aqui
 import { useContext } from 'react'
 import { DashboardContext } from '../../context/dashboard'
 
@@ -21,7 +20,7 @@ const schema = yup.object({
 
 
 const Login = () => {
-    const { setUserIsLog } = useContext(DashboardContext)// aqui
+    const { setUserIsLog } = useContext(DashboardContext)
 
     const {register, handleSubmit,  formState: { errors }} = useForm({
         resolver: yupResolver(schema)
@@ -32,12 +31,15 @@ const Login = () => {
 async function loginUser(data){
 
     await Api.post('login', data)
-    .then( (response) => {
+    .then((response) => {
         localStorage.setItem('@plantaryM3:token', response.data.accessToken)
-        localStorage.setItem('@plantaryM3:nickname', response.data.user.nickName)
+        localStorage.setItem('@plantaryM3:nickname', response.data.user.nickname)
         localStorage.setItem('@plantaryM3:user_id', response.data.user.id)
+        localStorage.setItem('@plantaryM3:user_image', response.data.user.image)
+        localStorage.setItem('@plantaryM3:user_type', response.data.user.type)
+        localStorage.setItem('@plantaryM3:user_email', response.data.user.email)
         navigate('/blog', {replace: true}) 
-        setUserIsLog(false)//aqui
+        setUserIsLog(false)
     })
     .catch((error) => {
         alert('Email ou senha incorretos')
