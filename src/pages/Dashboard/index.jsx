@@ -1,5 +1,5 @@
 // import { v4 as uuid } from 'uuid'
-import { useContext } from 'react' //useState
+import { useContext, useEffect } from 'react' //useState
 
 import IconRocket from '../../assets/IconRocket'
 
@@ -19,20 +19,23 @@ import {  useNavigate } from "react-router-dom";
 import { Navigate } from 'react-router-dom'
 import Modal from '../../components/Modal'
 import ModalPlanet from '../../components/ModalPlanet'
+import Api from '../../services/api'
 
 
 const Dashboard = () => {
     
     const navigate = useNavigate()
 
+ 
     const { 
+        userIsLog,//aqui
         planetsList, 
-        // planetOnFocus, setPlanetOnFocus, 
         isHeaderVisible, setIsHeaderVisible,
-        planetOnFocusDesktop, setPlanetOnFocusDesktop, isOpenModal
+        setPlanetOnFocusDesktop, isOpenModal
     } = useContext(DashboardContext)
 
-    // const planetInfo = planetsList[planetOnFocus]
+    const nameUser = localStorage.getItem('@plantaryM3:nickname')
+    console.log(nameUser)
 
     return (
         <>
@@ -40,9 +43,9 @@ const Dashboard = () => {
             <main>
                 <aside id='header'>
                     {isHeaderVisible ? '': 
-                    <Header>        
-                        <h3> Faça parte da nossa Comunidade </h3>
-                        <span onClick={() => navigate('/login')}><IconRocket/></span>
+                    <Header>   
+                        {nameUser === null? <h3> Faça parte da nossa Comunidade</h3> : <h3>{nameUser}</h3>}     
+                        <span onClick={() => nameUser === null? navigate('/login') : navigate('/blog')}><IconRocket/></span>
                         <span onClick={()=> setIsHeaderVisible(!isHeaderVisible)}> fechar</span>
                     </Header>}
                     {isHeaderVisible && <button onClick={() => setIsHeaderVisible(!isHeaderVisible)}><IconMenuBurger/></button>}

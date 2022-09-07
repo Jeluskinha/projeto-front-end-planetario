@@ -13,12 +13,12 @@ const ModalPlanet = () => {
         <ModalContainer>
 
         <div className='planet-modal-box'>
-
             <div className='planet-modal-close'>
 
                 <button onClick={closeModal}><MdClose size={35}/></button>
 
             </div>
+
 
             <div className='planet-modal-data'>
 

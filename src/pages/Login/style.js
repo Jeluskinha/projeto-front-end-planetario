@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import orbitron from '../../assets/orbitron.light.ttf'
 import geo from '../../assets/Geo-Regular.ttf'
 
-export const LoginStyle = styled.body`
+export const LoginStyle = styled.div`
   @font-face {
     font-family: 'orbitron';
     src: url(${orbitron});
@@ -11,7 +11,7 @@ export const LoginStyle = styled.body`
     font-family: 'geo';
     src: url(${geo});
   }
-
+  height: 100vh;
   background-image: url(http://st.gde-fon.com/wallpapers_original/580996_prostranstvo_planeta_tma_svet_poverhnost_ochertani_5120x2880_www.Gde-Fon.com.jpg);
   background-repeat: no-repeat, repeat;
   background-position: center;
