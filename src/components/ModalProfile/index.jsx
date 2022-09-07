@@ -9,14 +9,17 @@ import Api from '../../services/api'
 import { BlogContext } from '../../context/blog'
 import { AnimatePresence, motion } from 'framer-motion'
 import ModalConfigEdit from '../ConfigPerfil'
+import DropConfig from '../ConfigPerfil/styles'
 
 const ModalProfile = () => {
 
     const [ user, setUser ] = useState({})
-    const { token, userID } = useContext(BlogContext)
+    const [ openDropConfig, setOpenDropConfig ] = useState(false)
+
+    // const { token, userID } = useContext(BlogContext)
     const { setIsProfileVisible } = useContext(BlogContext)
 
-    const {openDropConfig, setOpenDropConfig} = useState(false)
+    
     
     useEffect(() => {
         const data ={
@@ -26,14 +29,16 @@ const ModalProfile = () => {
              email: localStorage.getItem('@plantaryM3:user_email')
         }
         setUser(data)
-    }, [token, userID]) //
+    }, []) // token, userID
 
     return (
 
         <AnimatePresence>
-            <ModalContainer className='modal_container' onClick={(e) => {
-                e.target.className.includes('modal_container') && setIsProfileVisible(false)
-            }}>
+            <ModalContainer className='modal_container' 
+            onClick={(e) => {
+                e.target.className.includes('modal_container') && setIsProfileVisible(false) && setOpenDropConfig(false)
+            }}
+            >
 
                 <motion.div 
                 key="modal"
@@ -61,7 +66,7 @@ const ModalProfile = () => {
 
                                 <figure> <IconSchool/> </figure>
 
-                                <span> {user.type} </span>
+                                <span onClick={()=> setOpenDropConfig(!openDropConfig)}> {user.type} </span>
 
                             </div>
 
@@ -74,14 +79,15 @@ const ModalProfile = () => {
                             </div>
                         
                         </div>
-
+                      
                         <motion.button whileHover={{ scale: 1.2 }}> <IconConfig/> </motion.button>
 
                     </section>
                 </motion.div>
-
+                  {openDropConfig  && <DropConfig name='name'/>}
             </ModalContainer>
         </AnimatePresence>
+   
     )
 }
 

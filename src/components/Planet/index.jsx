@@ -4,7 +4,7 @@ import { PlanetContainer } from './styles'
 
 
 
-const Planet = ({ planet }) => {
+const Planet = ({ planet, easterEgg }) => {
 
 const {setIsOpenModal, setModalPlanet} = useContext(DashboardContext)
 
@@ -20,8 +20,8 @@ const {setIsOpenModal, setModalPlanet} = useContext(DashboardContext)
                 
             }}>
 
-              <img src={planet.image} alt={planet.resume}/>
-
+            {easterEgg && planet.name === 'Terra' ? <img src="./planets/EasterEgg.jpeg" alt='gabi'/> : <img src={planet.image} alt={planet.resume}/>}
+           
             </figure>
 
         </PlanetContainer>
