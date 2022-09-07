@@ -104,6 +104,7 @@ export const DashboardContainer = styled.div`
             font-size: 1.2rem;
             }
             main{
+                min-width: 320px;
                 display: flex;
                 flex-direction: column;
             }
@@ -120,7 +121,7 @@ export const DashboardContainer = styled.div`
                         position: absolute; 
                         z-index: 5000;      
                         min-height: 80%;
-                        min-width:  100%;
+                        width:  80%;
                         left: 0px;
                         bottom: 0px;
                         img{

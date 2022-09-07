@@ -34,7 +34,7 @@ async function loginUser(data){
     await Api.post('login', data)
     .then( (response) => {
         localStorage.setItem('@plantaryM3:token', response.data.accessToken)
-        localStorage.setItem('@plantaryM3:nickname', response.data.user.nickName)
+        localStorage.setItem('@plantaryM3:nickname', response.data.user.nickname)
         localStorage.setItem('@plantaryM3:user_id', response.data.user.id)
         navigate('/blog', {replace: true}) 
         setUserIsLog(false)//aqui

@@ -15,8 +15,6 @@ const ModalCreate = () => {
     const { setIsCreateVisible, setPostList } = useContext(PostsContext)
     const { token, userID } = useContext(BlogContext)
 
-    console.log(token)
-
     const schema = yup.object().shape({
         title: yup.string().required(),
         post: yup.string().required()
