@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { DashboardContext } from '../../context/dashboard'
 import { ModalContainer } from './styles'
 import IconClose from '../../assets/IconClose'
+import { AnimatePresence, motion } from 'framer-motion'
 
 
 const ModalPlanet = () => {
@@ -10,28 +11,39 @@ const ModalPlanet = () => {
 
     return (
 
-        <ModalContainer>  
+        <AnimatePresence>
+            <ModalContainer>  
 
-        <div className='planet-modal-box'>
-            <button onClick={closeModal}><IconClose/></button>
+            <motion.div 
+            initial={{ opacity: 0, scale: 0.5}}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ 
+                duration: 0.8,
+                delay: 0.1,
+                ease: [0, 0.71, 0.2, 1.01] 
+            }}
+            className='planet-modal-box'>
+                <button onClick={closeModal}><IconClose/></button>
 
-            <figure>
+                <figure>
 
-                <img src={modalPlanet.image} alt="" />
+                    <img src={modalPlanet.image} alt="" />
 
-            </figure>
+                </figure>
 
-            <div className='planet-modal-text'>
+                <div className='planet-modal-text'>
 
-                <h2>Planeta {modalPlanet.name}</h2>
+                    <h2>Planeta {modalPlanet.name}</h2>
 
-                <p>{modalPlanet.resume}</p>
+                    <p>{modalPlanet.resume}</p>
 
-            </div>
- 
-        </div>
+                </div>
+    
+            </motion.div>
 
-        </ModalContainer>
+            </ModalContainer>
+        </AnimatePresence>
     )
 }
 

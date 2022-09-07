@@ -10,6 +10,10 @@ export const PlanetContainer = styled.li`
     align-items: center;
     justify-content: center;
 
+    &&:hover {
+        cursor: pointer;    
+    }
+
     figure{
         margin: 0 auto;
         width: 100%;
@@ -45,7 +49,13 @@ export const PlanetContainer = styled.li`
             width: 100%;
             height: 100%;
             }
-    }  
+
+          
+    } 
+    figure:hover {
+        scale: 1.1;
+    } 
+
     @keyframes planetAnimation {
         0%{
             left: -15%;

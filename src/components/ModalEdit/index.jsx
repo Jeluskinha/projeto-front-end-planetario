@@ -79,7 +79,7 @@ const ModalEdit = () => {
                         <input 
                             type='text' 
                             id='input_createPost' 
-                            value={titlePost || ''}
+                            defaultValue={titlePost || ''}
                             onChange={(e) => setTitlePost('')}
                             {...register('title', {required: true, maxLength: {value: 20, message: 'Número máximo de caracteres atingido'}})}
                         />
@@ -91,7 +91,7 @@ const ModalEdit = () => {
                         <label htmlFor='create_post'> Publicação </label>
                         <textarea 
                             id='create_post' 
-                            value={postOnFocus.post}
+                            defaultValue={postOnFocus.post}
                             {...register('post', {required: true})}
                         ></textarea>
 

@@ -21,21 +21,17 @@ export const DashboardContainer = styled.div`
         display: flex;
         justify-content: flex-end;
 
-        #header{
-            min-width: 100vw;
-            z-index: 50;
-            position: absolute;
-
-            button {
-            height: 50px;
-            width: 50px;
-            z-index: 1;
-            right: 0;
-            position:fixed;
-            border: none;
-            background-color: transparent;
-            }
+        #burger_menu {
+        height: 40px;
+        width: 40px;
+        margin: 15px 30px;
+        z-index: 1;
+        right: 0;
+        position:fixed;
+        border: none;
+        background-color: transparent;
         }
+        
         div{
             min-height: 100%;  
             width: 10%;
