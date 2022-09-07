@@ -49,12 +49,11 @@ const Blog = () => {
     return (
 
         <motion.div
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 0.1 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ 
-            duration: 0.8,
-            delay: 0.5,
+            duration: 0.8,     
             ease: [0, 0.71, 0.2, 1.01] }}
         >
         <BlogContainer>

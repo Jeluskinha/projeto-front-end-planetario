@@ -57,7 +57,7 @@ const Post = ({ post }) => {
 
             <section className='user_info'>
 
-               {/* <img src={user.image} alt='Foto do usuário' />  */}
+               {<img src={user.image} alt='Foto do usuário' /   >}
 
                 <div>
                     <h4> {user.nickname} </h4>
