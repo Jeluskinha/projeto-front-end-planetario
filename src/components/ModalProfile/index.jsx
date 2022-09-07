@@ -8,28 +8,37 @@ import { useContext, useEffect, useState } from 'react'
 import Api from '../../services/api'
 import { BlogContext } from '../../context/blog'
 import { AnimatePresence, motion } from 'framer-motion'
+import ModalConfigEdit from '../ConfigPerfil'
+import DropConfig from '../ConfigPerfil/styles'
 
 const ModalProfile = () => {
 
     const [ user, setUser ] = useState({})
-    const { token, userID } = useContext(BlogContext)
+    const [ openDropConfig, setOpenDropConfig ] = useState(false)
+
+    // const { token, userID } = useContext(BlogContext)
     const { setIsProfileVisible } = useContext(BlogContext)
+
+    
     
     useEffect(() => {
-        Api.defaults.headers.authorization = `Bearer ${token}`
-
-        Api.get(`users/${userID}`)
-        .then(res => setUser(res.data))
-        .catch((err) => console.log(err))
-        
-    }, [token, userID]) 
+        const data ={
+             nickname : localStorage.getItem('@plantaryM3:nickname'),
+             image: localStorage.getItem('@plantaryM3:user_image'),
+             type: localStorage.getItem('@plantaryM3:user_type'),
+             email: localStorage.getItem('@plantaryM3:user_email')
+        }
+        setUser(data)
+    }, []) // token, userID
 
     return (
 
         <AnimatePresence>
-            <ModalContainer className='modal_container' onClick={(e) => {
-                e.target.className.includes('modal_container') && setIsProfileVisible(false)
-            }}>
+            <ModalContainer className='modal_container' 
+            onClick={(e) => {
+                e.target.className.includes('modal_container') && setIsProfileVisible(false) && setOpenDropConfig(false)
+            }}
+            >
 
                 <motion.div 
                 key="modal"
@@ -46,7 +55,7 @@ const ModalProfile = () => {
                     <h3> {user.nickname} </h3>
 
                     <figure className='profile_picture'>
-                        {/* <img src={user.image} alt='Foto de perfil' /> */}
+                        {<img src={user.image} alt='Foto de perfil' />}
                     </figure>
 
                     <section>
@@ -57,7 +66,7 @@ const ModalProfile = () => {
 
                                 <figure> <IconSchool/> </figure>
 
-                                <span> {user.select} </span>
+                                <span onClick={()=> setOpenDropConfig(!openDropConfig)}> {user.type} </span>
 
                             </div>
 
@@ -70,15 +79,15 @@ const ModalProfile = () => {
                             </div>
                         
                         </div>
-
+                      
                         <motion.button whileHover={{ scale: 1.2 }}> <IconConfig/> </motion.button>
 
                     </section>
-
                 </motion.div>
-
+                  {openDropConfig  && <DropConfig name='name'/>}
             </ModalContainer>
         </AnimatePresence>
+   
     )
 }
 

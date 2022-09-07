@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import orbitron from '../../assets/orbitron.light.ttf'
 import geo from '../../assets/Geo-Regular.ttf'
+import { ToastContainer } from 'react-toastify';
 
 export const LoginStyle = styled.div`
   @font-face {
@@ -22,7 +23,6 @@ export const LoginStyle = styled.div`
   flex-direction: column;
   background-color: black;
 
-
     #inColun{
       display: flex;
       flex-direction: row;
@@ -31,6 +31,7 @@ export const LoginStyle = styled.div`
     }
 
     form{
+      width: 80%;
       max-width: 346px;
       margin-left: 14%;
       display: flex;
@@ -61,7 +62,12 @@ export const LoginStyle = styled.div`
     }
 
     .inputErrorFunction{
+      max-width: 100%;
       min-height: 60px;
+    }
+
+    input {
+      max-width: 100%;
     }
 
     .labelForm{
@@ -137,17 +143,20 @@ export const LoginStyle = styled.div`
   background-color: black;
   justify-content: center;
   align-items: center;
+  flex-direction: column-reverse;
 
   #textLogin{
     display: none;
   }
+
+
 
   #verticalLine{
   display: none;
   }
 
   #soonLogin{
-      margin-top: 20%;
+      
     }
 
   form{
@@ -156,7 +165,7 @@ export const LoginStyle = styled.div`
     font-family: 'geo';
     max-height: 100%;
     margin-right: 14%;
-    margin-top: 60%;
+    margin-top: 30%;
     }
 
     #justifyCellPhone{
@@ -178,6 +187,7 @@ export const LoginStyle = styled.div`
     flex-direction: row;
     flex-wrap: wrap-reverse;
     background-color: black;
+   
 
     
     #textLogin{
@@ -191,7 +201,7 @@ export const LoginStyle = styled.div`
     form{
     display: flex;
     font-family: 'geo';
-    display: flex;
+    display: 60%;
     }
 
     #soonLogin{
@@ -200,10 +210,21 @@ export const LoginStyle = styled.div`
     }
 
     #justifyCellPhone{
-    max-height:40% ;
+
+      max-height:40% ;
       margin-bottom: 40%;
     }
-
-
    }
+`;
+
+export const StyledToast = styled(ToastContainer)`
+  font-size: 1.6rem; 
+  text-align: center;
+
+  .Toastify__toast-body {
+    gap: 10px;
+    display: flex;
+    flex-direction: column
+  }
+ 
 `;

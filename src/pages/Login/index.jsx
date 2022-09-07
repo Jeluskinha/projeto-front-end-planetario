@@ -1,12 +1,15 @@
 import { useForm } from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useNavigate } from 'react-router-dom'
-import { LoginStyle } from './style'
+import { Link, useNavigate } from 'react-router-dom'
+import { LoginStyle, StyledToast } from './style'
 import logo from '../../assets/LogoPlanetario.svg'
 import Api from '../../services/api'
 
-//aqui
+import { toast } from 'react-toastify';
+
+  import 'react-toastify/dist/ReactToastify.css';
+
 import { useContext } from 'react'
 import { DashboardContext } from '../../context/dashboard'
 
@@ -19,9 +22,8 @@ const schema = yup.object({
 }) 
 
 
-
 const Login = () => {
-    const { setUserIsLog } = useContext(DashboardContext)// aqui
+    const { setUserIsLog } = useContext(DashboardContext)
 
     const {register, handleSubmit,  formState: { errors }} = useForm({
         resolver: yupResolver(schema)
@@ -31,22 +33,48 @@ const Login = () => {
 
 async function loginUser(data){
 
+    const notify = () => toast.error("Email ou senha incorretos!",{
+        position: "top-center",
+        autoClose: 5000,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        hideProgressBar: true,
+        theme: "dark",
+       
+    });
+
     await Api.post('login', data)
-    .then( (response) => {
+    .then((response) => {
         localStorage.setItem('@plantaryM3:token', response.data.accessToken)
         localStorage.setItem('@plantaryM3:nickname', response.data.user.nickname)
         localStorage.setItem('@plantaryM3:user_id', response.data.user.id)
+        localStorage.setItem('@plantaryM3:user_image', response.data.user.image)
+        localStorage.setItem('@plantaryM3:user_type', response.data.user.type)
+        localStorage.setItem('@plantaryM3:user_email', response.data.user.email)
         navigate('/blog', {replace: true}) 
-        setUserIsLog(false)//aqui
+        setUserIsLog(false)
     })
     .catch((error) => {
-        alert('Email ou senha incorretos')
+        notify()
     })
 }
 
 return(
 
 <LoginStyle>
+    <StyledToast
+    position="top-center"
+    autoClose={5000}
+    newestOnTop={false}
+    closeOnClick={true}
+    closeButton={false}
+    rtl={false}
+    pauseOnFocusLoss={false}
+    draggable={false}
+    pauseOnHover={false}
+/>
     <div id='inColun'>    
                 <div id='textLogin'>
                     <p className='textLoginECadastro'>  Aqui você tem acesso </p>
@@ -84,7 +112,7 @@ return(
                 <div id='centerSpan'>
                     <span id='spanLogin'>
                         Ainda não faz parte da comunidade? 
-                        <br />Cadastre-se <a href="http://localhost:3000/register"> aqui </a>
+                        <br />Cadastre-se <Link to='/register'> aqui </Link>
                 </span>
                 </div>
             </form>

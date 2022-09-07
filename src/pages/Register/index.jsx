@@ -4,7 +4,7 @@ import * as yup from 'yup'
 import { RegisterStyle } from './style'
 import logo from '../../assets/LogoPlanetario.svg'
 import Api from '../../services/api'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 
@@ -48,6 +48,7 @@ const Register = () => {
     return (
         <RegisterStyle>
             <div id='inColun'>
+               
                 <div id='textRegister'>
                     <p className='textLoginECadastro'>  Aqui você tem acesso </p>
                     <p className='textLoginECadastro'>  ao maior </p>
@@ -55,7 +56,7 @@ const Register = () => {
                     <p className='textLoginECadastro'>  sobre planetas! </p>
 
                     <p className='textLoginECadastro'>  Faça seu login e divirta-se </p>
-                    <p className='textLoginECadastro'>  na imensidão da nossa galáxia!</p>
+                    <p className='textLoginECadastro'>  na imensidão da nossa galáxia!</p>  
                 </div>
                 <div id="verticalLine"></div>
                 <form onSubmit={handleSubmit(registerUser)}>
@@ -85,7 +86,7 @@ const Register = () => {
 
 
                     <label htmlFor="select" className='labelForm'>Selecione uma das opções:</label>
-                    <select name="" {...register('select')} className='inputForm'>
+                    <select name="" {...register('type')} className='inputForm'>
                         <option value="Entusiasta" className='option'>Entusiasta</option>
                         <option value="Aluno" className='option'>Aluno</option>
                         <option value="Professor" className='option'>Professor</option>
@@ -93,9 +94,19 @@ const Register = () => {
                     <div id='centerButton'>
                     <button id='buttonRegister'>Registrar</button>
                     </div>
+
+                    <div id='centerSpan'>
+                    <span id='spanLogin'>
+                        Já faz parte da comunidade? 
+                        <br />Faça login <Link to='/login'> aqui </Link>
+                </span>
+                </div>
+                    
                 </form>
+                
             </div>
             <img src={logo} alt="" id='soonRegister' />
+            
         </RegisterStyle>
 
     )

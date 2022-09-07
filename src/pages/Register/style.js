@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import orbitron from '../../assets/orbitron.light.ttf'
 import geo from '../../assets/Geo-Regular.ttf'
 
-export const RegisterStyle = styled.body`
+export const RegisterStyle = styled.div`
   @font-face {
     font-family: 'orbitron';
     src: url(${orbitron});
@@ -12,6 +12,7 @@ export const RegisterStyle = styled.body`
     src: url(${geo});
   }
 
+  height: 100vh;
   background-image: url(http://st.gde-fon.com/wallpapers_original/580996_prostranstvo_planeta_tma_svet_poverhnost_ochertani_5120x2880_www.Gde-Fon.com.jpg);
   background-repeat: no-repeat, repeat;
   background-position: center;
@@ -28,7 +29,20 @@ export const RegisterStyle = styled.body`
       align-items: center;
     }
 
+    #spanLogin{
+      
+      font-size: 15px;
+      text-align: center;
+    }
+
+    #centerSpan{
+      margin-top: 5%;
+      display: flex;
+      justify-content: center;
+    }
+
     form{
+      width: 80%;
       max-width: 346px;
       margin-left: 14%;
       display: flex;
@@ -61,6 +75,16 @@ export const RegisterStyle = styled.body`
 
     .junctionInputError{
       min-height: 60px;
+      max-width: 100%;
+    }
+
+    input, select {
+      max-width: 100%;
+    }
+
+    img {
+      min-width: 300px;
+      width: 30%;
     }
 
     .labelForm{
@@ -139,7 +163,8 @@ export const RegisterStyle = styled.body`
   }
 
   #soonRegister{
-      margin-top: 20%;
+      margin-top: 8%;
+      margin-bottom: 20px;
     }
 
   form{
@@ -156,10 +181,8 @@ export const RegisterStyle = styled.body`
 
 @media (max-width: 400px){
   #soonRegister{
-      margin-top: 20%;
-      width: 300px;
+      margin-top: 35px;
     }
-
 
 }
 
