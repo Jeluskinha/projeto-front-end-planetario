@@ -4,9 +4,10 @@ import Api from '../../services/api';
 export const DashboardContext = createContext();
 
 export const DashboardProvider = ({ children }) => {
+
+    const [userIsLog, setUserIsLog] = useState(false)
     
     const [ planetsList, setPlanetList ] = useState([])
-    // const [ planetOnFocus, setPlanetOnFocus ] = useState(0)
     const [ planetOnFocusDesktop, setPlanetOnFocusDesktop ] = useState({})
     const [ isHeaderVisible, setIsHeaderVisible ] = useState(true)
     const [ isOpenModal, setIsOpenModal ] = useState(false)
@@ -24,6 +25,7 @@ export const DashboardProvider = ({ children }) => {
 
     return (
         <DashboardContext.Provider value={{ 
+            userIsLog, setUserIsLog,
             planetsList, setPlanetList, 
             // planetOnFocus, setPlanetOnFocus,
             isHeaderVisible, setIsHeaderVisible,
