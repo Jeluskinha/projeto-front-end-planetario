@@ -57,7 +57,7 @@ const ModalProfile = () => {
 
                                 <figure> <IconSchool/> </figure>
 
-                                <span> {user.select} </span>
+                                <span> {user.type} </span>
 
                             </div>
 
