@@ -136,7 +136,6 @@ const Blog = () => {
                                     exit={{ opacity: 0 }}
                                     transition={{ 
                                         duration: 0.8,
-                                        delay: 0.2,
                                         ease: [0, 0.71, 0.2, 1.01] }}
                                     whileFocus={{ scale: 1.2 }}
                                     whileHover={{ scale: 1.2 }}
@@ -148,7 +147,6 @@ const Blog = () => {
                                     exit={{ opacity: 0 }}
                                     transition={{ 
                                         duration: 0.8,
-                                        delay: 0.2,
                                         ease: [0, 0.71, 0.2, 1.01] }}
                                     whileFocus={{ scale: 1.2 }}
                                     whileHover={{ scale: 1.2 }} 
@@ -160,7 +158,6 @@ const Blog = () => {
                                     exit={{ opacity: 0 }}
                                     transition={{ 
                                         duration: 0.8,
-                                        delay: 0.2,
                                         ease: [0, 0.71, 0.2, 1.01] }}
                                     whileFocus={{ scale: 1.2 }}
                                     whileHover={{ scale: 1.2 }} 
@@ -176,7 +173,6 @@ const Blog = () => {
                                 exit={{ opacity: 0 }}
                                 transition={{ 
                                     duration: 0.8,
-                                    delay: 0.2,
                                     ease: [0, 0.71, 0.2, 1.01] }}
                                 className='btn-close' 
                                 onClick={() => setIsHeaderVisible(false)}> <IconClose/> </motion.button>

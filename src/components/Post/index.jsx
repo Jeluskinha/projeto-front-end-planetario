@@ -61,7 +61,7 @@ const Post = ({ post }) => {
 
                 <div>
                     <h4> {user.nickname} </h4>
-                    <span> {user.select} </span>
+                    <span> {user.type} </span>
                 </div>
 
             </section>
