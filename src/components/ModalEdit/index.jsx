@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -8,8 +8,14 @@ import Api from '../../services/api';
 import { ModalContainer } from './styles'
 import IconClose from '../../assets/IconClose'
 import { AnimatePresence, motion } from 'framer-motion';
+import { BlogContext } from '../../context/blog';
 
 const ModalEdit = () => {
+    
+    const { setIsEditVisible, postOnFocus, setPostList  } = useContext(PostsContext)
+    const { token } = useContext(BlogContext)
+
+    const [ titlePost, setTitlePost ] = useState('')
 
     const schema = yup.object().shape({
         title: yup.string(),
@@ -19,16 +25,25 @@ const ModalEdit = () => {
         resolver: yupResolver(schema)
     })
 
-    function changePost(data) {
-        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjQwMDc5NCwiZXhwIjoxNjYyNDA0Mzk0LCJzdWIiOiJ6eUJDNFVNIn0.F-d2M6dKDmfa6r4OhYUG8pkfdQ4q4Z-SvxcA7q1NpRY`
+    async function changePost(data) {
+        Api.defaults.headers.authorization = `Bearer ${token}`
 
-        Api.patch(`posts/${localStorage.getItem('@Post_ID')}`, data)
-        .then(res => console.log(res))
+        await Api.patch(`posts/${localStorage.getItem('@Post_ID')}`, data)
+        .then(res => localStorage.removeItem('@Post_ID'))
         .catch(err => console.log(err))
         .finally(setIsEditVisible(false))
+
+        await Api.get('posts')
+        .then(res => setPostList(res.data.reverse()))
     }
 
-    const { setIsEditVisible, postOnFocus } = useContext(PostsContext)
+    function inputValue() {
+        setTitlePost(postOnFocus.title)
+    }
+
+    useEffect(() => {
+        inputValue()
+    }, [postOnFocus])
     
     return (
 
@@ -64,7 +79,8 @@ const ModalEdit = () => {
                         <input 
                             type='text' 
                             id='input_createPost' 
-                            value={postOnFocus.title}
+                            value={titlePost || ''}
+                            onChange={(e) => setTitlePost('')}
                             {...register('title', {required: true, maxLength: {value: 20, message: 'Número máximo de caracteres atingido'}})}
                         />
 
@@ -75,7 +91,7 @@ const ModalEdit = () => {
                         <label htmlFor='create_post'> Publicação </label>
                         <textarea 
                             id='create_post' 
-                            value={postOnFocus.resume}
+                            value={postOnFocus.post}
                             {...register('post', {required: true})}
                         ></textarea>
 

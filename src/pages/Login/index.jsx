@@ -6,6 +6,10 @@ import { LoginStyle } from './style'
 import logo from '../../assets/LogoPlanetario.svg'
 import Api from '../../services/api'
 
+//aqui
+import { useContext } from 'react'
+import { DashboardContext } from '../../context/dashboard'
+
 
 const schema = yup.object({
 
@@ -15,20 +19,25 @@ const schema = yup.object({
 }) 
 
 
+
 const Login = () => {
-const {register, handleSubmit,  formState: { errors }} = useForm({
-    resolver: yupResolver(schema)
+    const { setUserIsLog } = useContext(DashboardContext)// aqui
+
+    const {register, handleSubmit,  formState: { errors }} = useForm({
+        resolver: yupResolver(schema)
     })
 
     const navigate = useNavigate()
 
-function loginUser(data){
-    console.log(data)
+async function loginUser(data){
 
-    Api.post('login', data)
+    await Api.post('login', data)
     .then( (response) => {
         localStorage.setItem('@plantaryM3:token', response.data.accessToken)
+        localStorage.setItem('@plantaryM3:nickname', response.data.user.nickName)
+        localStorage.setItem('@plantaryM3:user_id', response.data.user.id)
         navigate('/blog', {replace: true}) 
+        setUserIsLog(false)//aqui
     })
     .catch((error) => {
         alert('Email ou senha incorretos')

@@ -12,4 +12,4 @@ const Modal = ({ children }) => {
     )
 }
 
-export default Modal
+export default Modal;

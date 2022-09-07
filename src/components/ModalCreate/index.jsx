@@ -8,8 +8,14 @@ import IconClose from '../../assets/IconClose'
 import { ModalContainer } from './styles'
 import Api from '../../services/api';
 import { AnimatePresence, motion } from 'framer-motion';
+import { BlogContext } from '../../context/blog';
 
 const ModalCreate = () => {
+    
+    const { setIsCreateVisible, setPostList } = useContext(PostsContext)
+    const { token, userID } = useContext(BlogContext)
+
+    console.log(token)
 
     const schema = yup.object().shape({
         title: yup.string().required(),
@@ -19,16 +25,17 @@ const ModalCreate = () => {
         resolver: yupResolver(schema)
     })
 
-    function createPost(data) {
-        Api.defaults.headers.authorization = `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFuYUBob3RtYWlsLmNvbSIsImlhdCI6MTY2MjQwMDc5NCwiZXhwIjoxNjYyNDA0Mzk0LCJzdWIiOiJ6eUJDNFVNIn0.F-d2M6dKDmfa6r4OhYUG8pkfdQ4q4Z-SvxcA7q1NpRY`
+    async function createPost(data) {
+        Api.defaults.headers.authorization = `Bearer ${token}`
 
-        Api.post('users/WbDlpvm/posts', data)
+        await Api.post(`users/${userID}/posts`, data)
         .then(res => console.log(res))
         .catch(err => console.log(err))
         .finally(setIsCreateVisible(false))
-    }
 
-    const { setIsCreateVisible } = useContext(PostsContext)
+        await Api.get('posts')
+        .then(res => setPostList(res.data.reverse()))
+    }
 
     return (
         <AnimatePresence>

@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 import { motion } from "framer-motion"
@@ -23,21 +23,31 @@ import ModalProfile from '../../components/ModalProfile';
 import Logo from '../../assets/Logo'
 import { BlogContainer } from './styles'
 
+import { DashboardContext } from '../../context/dashboard'
+
+
 const Blog = () => {
 
     const { isHeaderVisible, setIsHeaderVisible, isProfileVisible, setIsProfileVisible } = useContext(BlogContext)
     const { postsList, isCreateVisible, setIsCreateVisible,isEditVisible, isDeleteVisible} = useContext(PostsContext)
 
+    const { setUserIsLog} = useContext(DashboardContext)
+    
+
     const navigate = useNavigate()
 
     function logout() {
-        localStorage.removeItem()
-        localStorage.removeItem()
-
-        navigate('/login', { replace:true })
+        localStorage.clear()
+        navigate('/', { replace:true })
     }
 
+    useEffect(() => {
+        const token = localStorage.getItem('@plantaryM3:token')
+        !token && navigate('/login', { replace: true })
+    }, [navigate])
+
     return (
+
         <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -65,7 +75,7 @@ const Blog = () => {
                                 <motion.button  
                                     whileHover={{ scale: 1.2 }}
                                     whileFocus={{ scale: 1.2 }} 
-                                    onClick={() => navigate('/', { replace: true })}> <IconRocket/> </motion.button>
+                                    onClick={() => navigate('/', { replace: true }) && console.log('foguete')}> <IconRocket/> </motion.button>
                                 <motion.button 
                                     whileHover={{ scale: 1.2 }}
                                     whileFocus={{ scale: 1.2 }}
@@ -73,7 +83,7 @@ const Blog = () => {
                                 <motion.button 
                                     whileHover={{ scale: 1.2 }} 
                                     whileFocus={{ scale: 1.2 }}
-                                    onClick={() => logout()}> <IconLogout/> </motion.button>
+                                    onClick={() => logout() && setUserIsLog(false)}> <IconLogout/> </motion.button>
 
                             </div>
                             
@@ -188,8 +198,8 @@ const Blog = () => {
                 </div>
 
                 <ul>
-                    {
-                        postsList.reverse().map(post => <Post key={uuid()} post={post}/>)
+                    {   
+                        postsList.map(post => <Post key={uuid()} post={post}/>)
                     }
                 </ul>
 

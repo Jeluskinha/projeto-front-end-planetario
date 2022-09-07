@@ -18,10 +18,10 @@ export const PlanetContainer = styled.li`
 
         //animation: Terra 5s linear infinite;
         &.Mercúrio {
-            animation-duration: 5s;
+            animation-duration: 8s;
         }
         &.Vênus {
-            animation-duration: 8s;
+            animation-duration: 10s;
         }
         &.Terra {
             animation-duration: 12s;
@@ -49,7 +49,7 @@ export const PlanetContainer = styled.li`
     @keyframes planetAnimation {
         0%{
             left: -15%;
-            bottom: 0;
+            bottom: -15%;
         }
         25%{
             left: 15%;
