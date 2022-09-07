@@ -48,6 +48,7 @@ const Register = () => {
     return (
         <RegisterStyle>
             <div id='inColun'>
+               
                 <div id='textRegister'>
                     <p className='textLoginECadastro'>  Aqui você tem acesso </p>
                     <p className='textLoginECadastro'>  ao maior </p>
@@ -55,7 +56,7 @@ const Register = () => {
                     <p className='textLoginECadastro'>  sobre planetas! </p>
 
                     <p className='textLoginECadastro'>  Faça seu login e divirta-se </p>
-                    <p className='textLoginECadastro'>  na imensidão da nossa galáxia!</p>
+                    <p className='textLoginECadastro'>  na imensidão da nossa galáxia!</p>  
                 </div>
                 <div id="verticalLine"></div>
                 <form onSubmit={handleSubmit(registerUser)}>
@@ -93,9 +94,19 @@ const Register = () => {
                     <div id='centerButton'>
                     <button id='buttonRegister'>Registrar</button>
                     </div>
+
+                    <div id='centerSpan'>
+                    <span id='spanLogin'>
+                        Já faz parte da comunidade? 
+                        <br />Faça login <a href="http://localhost:3000/login"> aqui </a>
+                </span>
+                </div>
+                    
                 </form>
+                
             </div>
             <img src={logo} alt="" id='soonRegister' />
+            
         </RegisterStyle>
 
     )

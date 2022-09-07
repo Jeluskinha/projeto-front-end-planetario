@@ -2,9 +2,13 @@ import { useForm } from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useNavigate } from 'react-router-dom'
-import { LoginStyle } from './style'
+import { LoginStyle, StyledToast } from './style'
 import logo from '../../assets/LogoPlanetario.svg'
 import Api from '../../services/api'
+
+import { toast } from 'react-toastify';
+
+  import 'react-toastify/dist/ReactToastify.css';
 
 import { useContext } from 'react'
 import { DashboardContext } from '../../context/dashboard'
@@ -18,7 +22,6 @@ const schema = yup.object({
 }) 
 
 
-
 const Login = () => {
     const { setUserIsLog } = useContext(DashboardContext)
 
@@ -29,6 +32,18 @@ const Login = () => {
     const navigate = useNavigate()
 
 async function loginUser(data){
+
+    const notify = () => toast.error("Email ou senha incorretos!",{
+        position: "top-center",
+        autoClose: 5000,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        hideProgressBar: true,
+        theme: "dark",
+       
+    });
 
     await Api.post('login', data)
     .then((response) => {
@@ -42,13 +57,24 @@ async function loginUser(data){
         setUserIsLog(false)
     })
     .catch((error) => {
-        alert('Email ou senha incorretos')
+        notify()
     })
 }
 
 return(
 
 <LoginStyle>
+    <StyledToast
+    position="top-center"
+    autoClose={5000}
+    newestOnTop={false}
+    closeOnClick={true}
+    closeButton={false}
+    rtl={false}
+    pauseOnFocusLoss={false}
+    draggable={false}
+    pauseOnHover={false}
+/>
     <div id='inColun'>    
                 <div id='textLogin'>
                     <p className='textLoginECadastro'>  Aqui você tem acesso </p>
