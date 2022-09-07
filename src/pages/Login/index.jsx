@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { LoginStyle, StyledToast } from './style'
 import logo from '../../assets/LogoPlanetario.svg'
 import Api from '../../services/api'
@@ -112,7 +112,7 @@ return(
                 <div id='centerSpan'>
                     <span id='spanLogin'>
                         Ainda não faz parte da comunidade? 
-                        <br />Cadastre-se <a href="http://localhost:3000/register"> aqui </a>
+                        <br />Cadastre-se <Link to='/register'> aqui </Link>
                 </span>
                 </div>
             </form>

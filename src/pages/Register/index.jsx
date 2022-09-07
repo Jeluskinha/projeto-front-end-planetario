@@ -4,7 +4,7 @@ import * as yup from 'yup'
 import { RegisterStyle } from './style'
 import logo from '../../assets/LogoPlanetario.svg'
 import Api from '../../services/api'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 
@@ -98,7 +98,7 @@ const Register = () => {
                     <div id='centerSpan'>
                     <span id='spanLogin'>
                         Já faz parte da comunidade? 
-                        <br />Faça login <a href="http://localhost:3000/login"> aqui </a>
+                        <br />Faça login <Link to='/login'> aqui </Link>
                 </span>
                 </div>
                     
