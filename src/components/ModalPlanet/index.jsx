@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { DashboardContext } from '../../context/dashboard'
 import { ModalContainer } from './styles'
-import { MdClose } from 'react-icons/md'
+import IconClose from '../../assets/IconClose'
 
 
 const ModalPlanet = () => {
@@ -10,34 +10,25 @@ const ModalPlanet = () => {
 
     return (
 
-        <ModalContainer>
+        <ModalContainer>  
 
         <div className='planet-modal-box'>
-            <div className='planet-modal-close'>
+            <button onClick={closeModal}><IconClose/></button>
 
-                <button onClick={closeModal}><MdClose size={35}/></button>
+            <figure>
 
-            </div>
+                <img src={modalPlanet.image} alt="" />
 
+            </figure>
 
-            <div className='planet-modal-data'>
+            <div className='planet-modal-text'>
 
-                <figure>
+                <h2>Planeta {modalPlanet.name}</h2>
 
-                    <img src={modalPlanet.image} alt="" />
-
-                </figure>
-
-                <div className='planet-modal-text'>
-
-                    <h2>Planeta {modalPlanet.name}</h2>
-
-                    <p>{modalPlanet.resume}</p>
-
-                </div>
+                <p>{modalPlanet.resume}</p>
 
             </div>
-            
+ 
         </div>
 
         </ModalContainer>
