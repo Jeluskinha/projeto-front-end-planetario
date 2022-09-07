@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 const schema = yup.object({
-    nickName: yup.string().required('O seu apelido é obrigatório'),
+    nickname: yup.string().required('O seu apelido é obrigatório'),
 
     email: yup.string().email('Deve ser um email').required('O seu email é obrigatório'),
 
@@ -62,10 +62,10 @@ const Register = () => {
 
                     <p id='textRegister2'>Cadastro</p>
 
-                    <label htmlFor="nickName" className='labelForm'>Apelido:</label>
+                    <label htmlFor="nickname" className='labelForm'>Apelido:</label>
                     <div className='junctionInputError'>
-                    <input type="text" id="nickName" {...register('nickName')} className='inputForm' />
-                    <p className='mensageErr'>{errors.nickName?.message}</p>
+                    <input type="text" id="nickname" {...register('nickname')} className='inputForm' />
+                    <p className='mensageErr'>{errors.nickname?.message}</p>
                     </div>
 
 
