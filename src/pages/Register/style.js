@@ -13,7 +13,7 @@ export const RegisterStyle = styled.div`
   }
 
   height: 100vh;
-  background-image: url(http://st.gde-fon.com/wallpapers_original/580996_prostranstvo_planeta_tma_svet_poverhnost_ochertani_5120x2880_www.Gde-Fon.com.jpg);
+  background-image: url('http://st.gde-fon.com/wallpapers_original/580996_prostranstvo_planeta_tma_svet_poverhnost_ochertani_5120x2880_www.Gde-Fon.com.jpg');
   background-repeat: no-repeat, repeat;
   background-position: center;
   background-size: cover;
@@ -144,7 +144,7 @@ export const RegisterStyle = styled.div`
 
   @media (max-width: 960px){
 
-  background: url(https://i.ibb.co/DVsLyx6/Wallpaper-da-lua-1lua.jpg);
+  background: url('https://i.ibb.co/DVsLyx6/Wallpaper-da-lua-1lua.jpg');
   background-repeat: no-repeat, repeat;
   background-position: center;
   background-size: cover;
