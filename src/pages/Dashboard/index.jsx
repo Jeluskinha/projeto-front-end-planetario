@@ -44,7 +44,7 @@ const Dashboard = () => {
                             
                                 {
                                     nameUser === null? 
-                                    <h3> Faça parte da nossa Comunidade</h3> 
+                                    <h3> Faça parte da nossa Comunidade ungabunga</h3> 
                                     : <h3>{nameUser}</h3>
                                 } 
                                 
