@@ -22,7 +22,6 @@ import {AiOutlineArrowUp} from 'react-icons/ai'
 const Dashboard = () => {
     
     const easterEgg = localStorage.getItem('@plantaryM3:nickname')
-    console.log(easterEgg)
 
     const navigate = useNavigate()
 
@@ -44,7 +43,9 @@ const Dashboard = () => {
                             
                                 {
                                     nameUser === null? 
-                                    <h3> Faça parte da nossa Comunidade ungabunga</h3> 
+
+                                    <h3>Faça parte da nossa Comunidade</h3> 
+                      
                                     : <h3>{nameUser}</h3>
                                 } 
                                 
