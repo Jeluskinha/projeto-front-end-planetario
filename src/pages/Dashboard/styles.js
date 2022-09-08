@@ -37,7 +37,7 @@ export const DashboardContainer = styled.div`
             width: 10%;
             display: flex;
             align-items: center;
-            z-index: 1;
+            z-index: 0;
             #sun__dashboard{
                 height: 100%;
                 width: 400px;
