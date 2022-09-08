@@ -13,7 +13,7 @@ export const RegisterStyle = styled.div`
   }
 
   height: 100vh;
-  background-image: url('http://st.gde-fon.com/wallpapers_original/580996_prostranstvo_planeta_tma_svet_poverhnost_ochertani_5120x2880_www.Gde-Fon.com.jpg');
+  background-image: url('https://lh3.googleusercontent.com/DJI7Cmnj6k0eBimWNq3BNy_6bi1MA6_52q0SwIC8PJVfdQlxdhDNKjKPM2yTsFQcZkRmb1Lh-buCXNJpcZY_J-6CvftXAglWF5X73NMUFxJ-8JPWR73rscHzMUbqDtWPD_eTnFZQBmWC4_CVXZeIt-f03PwknyOxeEjQ_pmJxsViYcggnWBWYJMv67eWJdNXQUuTLyYAB6F0uz5-ML5-Spfdu-PZzoIxdunaKQ4DmURPkmIx842d9zMlpE-d78oqgHoFBIv4e2Sb6sTKVjHZ3j2UVigAhJC0UVB8aRD5RycTVE0QbKcjvCRcxxNAmZUF_XlXYcV5Hd-j0kAzF7c-IdWDsCk0-Tto9xjZO6R_C7PpkJpMjaYvcWpMJTjtSoKHnjq_0QwMclCQRI3O6f_e7h-tBfEsCzDhHTxCAhYGRQaQC9TI5Pzv4CpNytjiGd-947PvCddwXLD3x7ZgFeq-rp1QkNxlAq7H9VPEm3ORKZn6hvH-FFzBTFKwrYEsxXgeE67KiDhAgeEOvv-st70XRjFUGyPONLSJ1FowuRqy-XRH-5GS6EkaFL2EYt52q7HL6m8fwFestpRX7ykop7Rl9o2fIUPFnOrVA-I7xu1tWfd7MKEXMS0nf8VvWJ7VL6lqjQE_wTOPpJU4GpopVD2dQK2bcgXBvPVVOIVCxU2cYGb_7ZowamHQnXyHk3iyIU44snRc8RmnaeF8u7pS2kr7QOBoGAgGBATR2k6mJZn0-L4eGyJVlOfm-Cevy0M=w1600-h900-no?authuser=0');
   background-repeat: no-repeat, repeat;
   background-position: center;
   background-size: cover;
