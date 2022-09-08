@@ -44,9 +44,13 @@ const Dashboard = () => {
                             
                                 {
                                     nameUser === null? 
+<<<<<<< HEAD
 
                                     <h3>Faça parte da nossa Comunidade ungabunga</h3> 
 
+=======
+                                    <h3>Faça parte da nossa Comunidade</h3> 
+>>>>>>> 33ff419cc983698ead90a3b98046e0096e3b9d9f
                                     : <h3>{nameUser}</h3>
                                 } 
                                 
